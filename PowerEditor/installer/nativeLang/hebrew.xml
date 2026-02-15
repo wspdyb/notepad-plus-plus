@@ -1,425 +1,1939 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+הערת תרגום:
+1. אנא התקן את התוסף XML Tools לצורך עיצוב תרגום ה-XML שלך. דרך התפריט "תוספים -> XML Tools -> Pretty Print - indent only".
+2. כל ההערות נועדו להסבר בלבד, הן אינן מיועדות לתרגום בממשק המשתמש.
+-->
 <NotepadPlus>
 	<!--
-	If "RTL" attribute is present and its value is "yes", then user can add "editZoneRTL" attribute beside,
-	and set the value of the attribute in question to "no", so Notepad++ GUI will be RTL,
-	but Scintilla zone will be LTR by opening files (see the commented example).
-	Of course, user can set any direction they want afterward, and what they have set on document will be remembered across the sessions.
+	אם המאפיין "RTL" קיים וערכו "yes", המשתמש יכול להוסיף לידו את המאפיין "editZoneRTL",
+	ולקבוע את ערכו ל-"no", כך שממשק המשתמש של Notepad++ יהיה מימין לשמאל (RTL),
+	אך אזור העריכה (Scintilla) יהיה משמאל לימין (LTR) בעת פתיחת קבצים (ראה את הדוגמה המוסתרת בהערה).
+	כמובן, המשתמש יכול לקבוע כל כיוון שירצה לאחר מכן, והכיוון שנקבע עבור המסמך יישמר בין ההפעלות.
 	-->
 	<!-- Native-Langue name="Hebrew" RTL="yes" editZoneRTL="no" filename="hebrew.xml" -->
-	<Native-Langue name="Hebrew" RTL="yes" filename="hebrew.xml">
+	<Native-Langue name="Hebrew"  editZoneRTL="no" RTL="yes" filename="hebrew.xml" version="8.9">
 		<Menu>
 			<Main>
-				<!-- Main Menu Entries -->
+				<!-- פריטי תפריט ראשי -->
 				<Entries>
 					<Item menuId="file" name="&amp;קובץ"/>
 					<Item menuId="edit" name="&amp;עריכה"/>
 					<Item menuId="search" name="&amp;חיפוש"/>
 					<Item menuId="view" name="&amp;תצוגה"/>
-					<Item menuId="encoding" name="&amp;פורמט"/>
+					<Item menuId="encoding" name="&amp;קידוד"/>
 					<Item menuId="language" name="&amp;שפה"/>
 					<Item menuId="settings" name="&amp;הגדרות"/>
 					<Item menuId="tools" name="&amp;כלים"/>
-					<Item menuId="macro" name="מאקרו מקשים"/>
-					<Item menuId="run" name="הפעלה"/>
-					<Item menuId="Plugins" name="תוספים"/>
-					<Item menuId="Window" name="חלון"/>
-
+					<Item menuId="macro" name="&amp;מאקרו"/>
+					<Item menuId="run" name="&amp;הפעלה"/>
+					<Item menuId="Plugins" name="&amp;תוספים"/>
+					<Item menuId="Window" name="&amp;חלון"/>
 				</Entries>
-
-				<!-- Sub Menu Entries -->
+				<!-- פריטי תפריט משנה -->
 				<SubEntries>
-					<Item subMenuId="edit-copyToClipboard" name="העתק לזיכרון"/>
-					<Item subMenuId="edit-indent" name="רווח"/>
-					<Item subMenuId="edit-convertCaseTo" name="המר משפט"/>
-					<Item subMenuId="edit-lineOperations" name="פעולות בשורה"/>
-					<Item subMenuId="edit-comment" name="הערה/חוסר הערה"/>
-					<Item subMenuId="edit-autoCompletion" name="השלמה אוטומטית"/>
-					<Item subMenuId="search-markAll" name="סמן הכול"/>
-					<Item subMenuId="search-unmarkAll" name="בטל סמן הכול"/>
-					<Item subMenuId="view-showSymbol" name="הראה סמל"/>
-					<Item subMenuId="view-zoom" name="התמקד"/>
+					<Item subMenuId="file-openFolder" name="פתח &amp;תיקייה מכילה"/>
+					<Item subMenuId="file-closeMore" name="סגור &amp;מסמכים מרובים"/>
+					<Item subMenuId="file-recentFiles" name="קבצים &amp;אחרונים"/>
+					<Item subMenuId="edit-insert" name="הכנסה"/>
+					<Item subMenuId="edit-copyToClipboard" name="הע&amp;תק ללוח"/>
+					<Item subMenuId="edit-indent" name="&amp;הסטה"/>
+					<Item subMenuId="edit-convertCaseTo" name="ה&amp;מר רישיות/קטנות ל-"/>
+					<Item subMenuId="edit-lineOperations" name="פעולות &amp;שורה"/>
+					<Item subMenuId="edit-comment" name="ה&amp;ערה/ביטול הערה"/>
+					<Item subMenuId="edit-autoCompletion" name="&amp;השלמה אוטומטית"/>
+					<Item subMenuId="edit-eolConversion" name="המרת &amp;סוף שורה"/>
+					<Item subMenuId="edit-blankOperations" name="פעולות &amp;ריק"/>
+					<Item subMenuId="edit-pasteSpecial" name="&amp;הדבקה מיוחדת"/>
+					<Item subMenuId="edit-onSelection" name="&amp;על הבחירה"/>
+					<Item subMenuId="edit-multiSelectALL" name="בחירה מרובה: הכל"/>
+					<Item subMenuId="edit-multiSelectNext" name="בחירה מרובה: הבא"/>
+					<Item subMenuId="edit-readonlyInNotepad++" name="קריאה בלבד ב-Notepad++"/>
+					<Item subMenuId="search-changeHistory" name="היסטוריית שינויים"/>
+					<Item subMenuId="search-markAll" name="סגנן את &amp;כל מופעי האסימון"/>
+					<Item subMenuId="search-markOne" name="סגנן אסימון &amp;אחד"/>
+					<Item subMenuId="search-unmarkAll" name="נקה סגנון"/>
+					<Item subMenuId="search-jumpUp" name="&amp;קפוץ למעלה"/>
+					<Item subMenuId="search-jumpDown" name="קפוץ למ&amp;טה"/>
+					<Item subMenuId="search-copyStyledText" name="הע&amp;תק טקסט מסוגנן"/>
+					<Item subMenuId="search-bookmark" name="ס&amp;ימניה"/>
+					<Item subMenuId="view-currentFileIn" name="הצג קובץ נוכחי ב-"/>
+					<Item subMenuId="view-showSymbol" name="הצג סמלים"/>
+					<Item subMenuId="view-zoom" name="זום"/>
 					<Item subMenuId="view-moveCloneDocument" name="העבר/שכפל מסמך נוכחי"/>
-					<Item subMenuId="view-collapseLevel" name="אחד את השלב"/>
-					<Item subMenuId="view-uncollapseLevel" name="פצל את השלב"/>
-
+					<Item subMenuId="view-tab" name="לשונית"/>
+					<Item subMenuId="view-collapseLevel" name="רמת קיפול"/>
+					<Item subMenuId="view-uncollapseLevel" name="רמת פריסה"/>
+					<Item subMenuId="view-project" name="פרויקט"/>
+					<Item subMenuId="encoding-characterSets" name="סט תווים"/>
+					<Item subMenuId="encoding-arabic" name="ערבית"/>
+					<Item subMenuId="encoding-baltic" name="בלטית"/>
+					<Item subMenuId="encoding-celtic" name="קלטית"/>
+					<Item subMenuId="encoding-cyrillic" name="קירילית"/>
+					<Item subMenuId="encoding-centralEuropean" name="מרכז אירופית"/>
+					<Item subMenuId="encoding-chinese" name="סינית"/>
+					<Item subMenuId="encoding-easternEuropean" name="מזרח אירופית"/>
+					<Item subMenuId="encoding-greek" name="יוונית"/>
+					<Item subMenuId="encoding-hebrew" name="עברית"/>
+					<Item subMenuId="encoding-japanese" name="יפנית"/>
+					<Item subMenuId="encoding-korean" name="קוריאנית"/>
+					<Item subMenuId="encoding-northEuropean" name="צפון אירופית"/>
+					<Item subMenuId="encoding-thai" name="תאילנדית"/>
+					<Item subMenuId="encoding-turkish" name="טורקית"/>
+					<Item subMenuId="encoding-westernEuropean" name="מערב אירופית"/>
+					<Item subMenuId="encoding-vietnamese" name="וייטנאמית"/>
+					<Item subMenuId="language-userDefinedLanguage" name="שפה מוגדרת משתמש"/>
+					<Item subMenuId="settings-import" name="ייבוא"/>
+					<Item subMenuId="tools-md5" name="MD5"/>
+					<Item id="48500" name="חולל..."/>
+					<Item id="48501" name="חולל מקבצים..."/>
+					<Item id="48502" name="חולל מבחירה ללוח"/>
+					<Item subMenuId="tools-sha1" name="SHA-1"/>
+					<Item id="48503" name="חולל..."/>
+					<Item id="48504" name="חולל מקבצים..."/>
+					<Item id="48505" name="חולל מבחירה ללוח"/>
+					<Item subMenuId="tools-sha256" name="SHA-256"/>
+					<Item id="48506" name="חולל..."/>
+					<Item id="48507" name="חולל מקבצים..."/>
+					<Item id="48508" name="חולל מבחירה ללוח"/>
+					<Item subMenuId="tools-sha512" name="SHA-512"/>
+					<Item id="48509" name="חולל..."/>
+					<Item id="48510" name="חולל מקבצים..."/>
+					<Item id="48511" name="חולל מבחירה ללוח"/>
+					<Item subMenuId="window-sortby" name="מיין לפי"/>
 				</SubEntries>
 
-				<!-- all menu item -->
+				<!-- כל פריטי התפריט -->
 				<Commands>
 					<Item id="41001" name="&amp;חדש"/>
-					<Item id="41002" name="&amp;פתח"/>
-					<Item id="41014" name="טען שנית"/>
-					<Item id="41003" name="סגור"/>
-					<Item id="41004" name="&amp;סגור הכל"/>
-					<Item id="41005" name="סגור הכל חוץ מקובץ נוכחי"/>
-					<Item id="41016" name="מחק מדיסק"/>
+					<Item id="41002" name="&amp;פתח..."/>
+					<Item id="41019" name="סייר הקבצים"/>
+					<Item id="41020" name="שורת הפקודה (cmd)"/>
+					<Item id="41025" name="תיקייה כסביבת עבודה"/>
+					<Item id="41003" name="&amp;סגור"/>
+					<Item id="41004" name="סגו&amp;ר הכל"/>
+					<Item id="41005" name="סגור הכל חוץ מהמסמך הנוכחי"/>
+					<Item id="41026" name="סגור הכל חוץ ממסמכים נעוצים"/>
+					<Item id="41009" name="סגור הכל משמאל"/>
+					<Item id="41018" name="סגור הכל מימין"/>
+					<Item id="41024" name="סגור את כל הלא-משתנים"/>
 					<Item id="41006" name="&amp;שמור"/>
-					<Item id="41007" name=" שמור הכל"/>
-					<Item id="41017" name="שנה שם"/>
-					<Item id="41008" name="שמור בשם..."/>
-					<Item id="41015" name="שמור עותק בשם..."/>
-					<Item id="41010" name="הדפס... "/>
-					<Item id="41011" name="&amp;יציאה"/>
-					<Item id="41012" name="טען מידע"/>
-					<Item id="41013" name="שמור מידע"/>
-					<Item id="1001" name="הדפס עכשיו!"/>
-
+					<Item id="41007" name="שמו&amp;ר הכל"/>
+					<Item id="41008" name="שמור &amp;בשם..."/>
+					<Item id="41010" name="ה&amp;דפס..."/>
+					<Item id="1001" name="הדפס עכ&amp;שיו"/>
+					<Item id="41011" name="י&amp;ציאה"/>
+					<Item id="41012" name="טען ס&amp;שן..."/>
+					<Item id="41013" name="שמור ס&amp;שן..."/>
+					<Item id="41014" name="ט&amp;ען מחדש מהדיסק"/>
+					<Item id="41015" name="שמור עות&amp;ק בשם..."/>
+					<Item id="41016" name="העבר לסל ה&amp;מיחזור"/>
+					<Item id="41017" name="ש&amp;נה שם..."/>
+					<Item id="41021" name="שחזר קובץ שנסגר לאחרונה"/>
+					<Item id="41022" name="פתח תיקייה כסביבת ע&amp;בודה..."/>
+					<Item id="41023" name="פתח בנגן &amp;ברירת המחדל"/>
 					<Item id="42001" name="ג&amp;זור"/>
 					<Item id="42002" name="&amp;העתק"/>
-					<Item id="42003" name="&amp;ביטול"/>
-					<Item id="42004" name="בצע &amp;שוב"/>
+					<Item id="42003" name="&amp;ביטול פעולה"/>
+					<Item id="42004" name="&amp;ביצוע מחדש"/>
 					<Item id="42005" name="ה&amp;דבק"/>
-					<Item id="42006" name="מחק"/>
-					<Item id="42007" name="בחר ה&amp;כל"/>
-					<Item id="42029" name="העתק מסלול קובץ מלא לזיכרון"/>
-					<Item id="42030" name="העתק שם קובץ נוכחי לזיכרון"/>
-					<Item id="42031" name="העתק מסלול תיקיה נוכחי לזיכרון"/>
-					<Item id="42008" name="הכנס TAB (רווח)"/>
-					<Item id="42009" name="הסר TAB (בטל רווח)"/>
+					<Item id="42006" name="&amp;מחק"/>
+					<Item id="42007" name="ב&amp;חר הכל"/>
+					<Item id="42020" name="התחלת/סיום &amp;בחירה"/>
+					<Item id="42089" name="התחלת/סיום בחירה במצב עמודה"/>
+					<Item id="42084" name="תאריך שעה (קצר)"/>
+					<Item id="42085" name="תאריך שעה (ארוך)"/>
+					<Item id="42086" name="תאריך שעה (מותאם אישית)"/>
+					<Item id="42008" name="הגדל הסטת שורה"/>
+					<Item id="42009" name="הקטן הסטת שורה"/>
 					<Item id="42010" name="שכפל שורה נוכחית"/>
-					<Item id="42011" name="העבר שורה נוכחית"/>
+					<Item id="42079" name="הסר שורות כפולות"/>
+					<Item id="42077" name="הסר שורות כפולות עוקבות"/>
 					<Item id="42012" name="פיצול שורות"/>
 					<Item id="42013" name="איחוד שורות"/>
-					<Item id="42014" name="הזז שורה למעלה"/>
-					<Item id="42015" name="הזז שורה למטה"/>
-					<Item id="42016" name="לאותיות רישיות"/>
-					<Item id="42017" name="לשימוש בכתב אנגלית קטן"/>
-					<Item id="42018" name="התחל הקלטה"/>
-					<Item id="42019" name="הפסק הקלטה"/>
-					<Item id="42020" name="הפעל מאקרו"/>
-					<Item id="42021" name="הפעל"/>
-					<Item id="42022" name="חסום גלגול הערה"/>
-					<Item id="42023" name="הערה שוטפת"/>
-					<Item id="42024" name="גזום נתיב מקום"/>
-					<Item id="42025" name="שמור מאקרו מוקלט נוכחי"/>
-					<Item id="42026" name="כיוון טקסט ימין לשמאל"/>
-					<Item id="42027" name="כיוון טקסט שמאל לימין"/>
-					<Item id="42028" name="הגדר לקריאה בלבד"/>
-					<Item id="42032" name="הרץ מאקרו מספר מוגדר של פעמים"/>
-					<Item id="42034" name="עורך עמודות"/>
-					<Item id="42035" name="חסום הערה"/>
-					<Item id="42036" name="חסום אי הערה"/>
-
-
-
-					<Item id="43001" name="חיפוש..."/>
-					<Item id="43002" name="חיפוש הבא"/>
-					<Item id="43003" name="החלפה..."/>
-					<Item id="43004" name="דלג אל שורה..."/>
-					<Item id="43005" name="קביעת סימניה"/>
+					<Item id="42014" name="העבר שורה למעלה"/>
+					<Item id="42015" name="העבר שורה למטה"/>
+					<Item id="42059" name="מיין שורות לקסיקוגרפית בסדר עולה"/>
+					<Item id="42060" name="מיין שורות לקסיקוגרפית בסדר יורד"/>
+					<Item id="42080" name="מיין שורות לקסיקוגרפית בסדר עולה תוך התעלמות מסימני רישיות"/>
+					<Item id="42081" name="מיין שורות לקסיקוגרפית בסדר יורד תוך התעלמות מסימני רישיות"/>
+					<Item id="42100" name="מיין שורות בסדר מקומי עולה"/>
+					<Item id="42101" name="מיין שורות בסדר מקומי יורד"/>
+					<Item id="42104" name="מיין שורות לפי אורך (עולה)"/>
+					<Item id="42105" name="מיין שורות לפי אורך (יורד)"/>
+					<Item id="42061" name="מיין שורות כמספרים שלמים בסדר עולה"/>
+					<Item id="42062" name="מיין שורות כמספרים שלמים בסדר יורד"/>
+					<Item id="42063" name="מיין שורות כמספרים עשרוניים (פסיק) בסדר עולה"/>
+					<Item id="42064" name="מיין שורות כמספרים עשרוניים (פסיק) בסדר יורד"/>
+					<Item id="42065" name="מיין שורות כמספרים עשרוניים (נקודה) בסדר עולה"/>
+					<Item id="42066" name="מיין שורות כמספרים עשרוניים (נקודה) בסדר יורד"/>
+					<Item id="42083" name="הפוך סדר שורות"/>
+					<Item id="42078" name="ערבב סדר שורות (באופן אקראי)"/>
+					<Item id="42016" name="לאותיות &amp;רישיות"/>
+					<Item id="42017" name="לאותיות &amp;קטנות"/>
+					<Item id="42067" name="&amp;Proper Case"/>
+					<Item id="42068" name="Proper Case (blend)"/>
+					<Item id="42069" name="אות רישית בתחילת &amp;משפט"/>
+					<Item id="42070" name="אות רישית בתחילת משפט (blend)"/>
+					<Item id="42071" name="ה&amp;פוך רישיות/קטנות"/>
+					<Item id="42072" name="רישיות/קטנות ב&amp;אקראי"/>
+					<Item id="42073" name="פתח קובץ"/>
+					<Item id="42074" name="פתח תיקייה מכילה בסייר הקבצים"/>
+					<Item id="42106" name="הסתרת בחירה █ (Shift: ●)"/>
+					<Item id="42075" name="חפש באינטרנט"/>
+					<Item id="42076" name="שנה מנוע חיפוש..."/>
+					<Item id="42090" name="התעלם מסימני רישיות &amp;&amp; מילה שלמה"/>
+					<Item id="42091" name="התאם סימני רישיות בלבד"/>
+					<Item id="42092" name="התאם מילה שלמה בלבד"/>
+					<Item id="42093" name="התאם סימני רישיות &amp;&amp; מילה שלמה"/>
+					<Item id="42098" name="בטל את הבחירה המרובה האחרונה שנוספה"/>
+					<Item id="42099" name="דלג על הנוכחי &amp;&amp; עבור לבחירה המרובה הבאה"/>
+					<Item id="42018" name="התחל ה&amp;קלטה"/>
+					<Item id="42019" name="ה&amp;פסק הקלטה"/>
+					<Item id="42021" name="ה&amp;שמעה"/>
+					<Item id="42022" name="החלף הערת שורה בודדת"/>
+					<Item id="42023" name="הערת בלוק"/>
+					<Item id="42047" name="ביטול הערת בלוק"/>
+					<Item id="42024" name="קצץ רווחים בסוף שורה"/>
+					<Item id="42042" name="קצץ רווחים בתחילת שורה"/>
+					<Item id="42043" name="קצץ רווחים בתחילה ובסוף שורה"/>
+					<Item id="42044" name="המר סוף שורה לרווח"/>
+					<Item id="42045" name="קצץ שניהם והמר סוף שורה לרווח"/>
+					<Item id="42046" name="המר טאב לרווח"/>
+					<Item id="42054" name="המר רווח לטאב (הכל)"/>
+					<Item id="42053" name="המר רווח לטאב (בתחילת שורה)"/>
+					<Item id="42038" name="הדבק תוכן HTML"/>
+					<Item id="42039" name="הדבק תוכן RTF"/>
+					<Item id="42048" name="העתק תוכן בינארי"/>
+					<Item id="42049" name="גזור תוכן בינארי"/>
+					<Item id="42050" name="הדבק תוכן בינארי"/>
+					<Item id="42082" name="העתק קישור"/>
+					<Item id="42037" name="מצב עמודה..."/>
+					<Item id="42034" name="עורך &amp;עמודות..."/>
+					<Item id="42051" name="לוח &amp;תווים"/>
+					<Item id="42052" name="היסטוריית &amp;לוח"/>
+					<Item id="42025" name="&amp;שמור מאקרו מוקלט נוכחי..."/>
+					<Item id="42026" name="כיוון טקסט לימין (RTL)"/>
+					<Item id="42027" name="כיוון טקסט לשמאל (LTR)"/>
+					<Item id="42028" name="הגדר כקריאה בלבד במסמך הנוכחי"/>
+					<Item id="42102" name="הגדר כקריאה בלבד לכל המסמכים"/>
+					<Item id="42103" name="נקה קריאה בלבד לכל המסמכים"/>
+					<Item id="42029" name="העתק נתיב קובץ נוכחי"/>
+					<Item id="42030" name="העתק שם קובץ נוכחי"/>
+					<Item id="42031" name="העתק נתיב תיקייה נוכחית"/>
+					<Item id="42087" name="העתק את כל שמות הקבצים"/>
+					<Item id="42088" name="העתק את כל נתיבי הקבצים"/>
+					<Item id="42032" name="ה&amp;רץ מאקרו מספר פעמים..."/>
+					<Item id="42033" name="תכונת קריאה בלבד ב-Windows"/>
+					<Item id="42035" name="הערת שורה בודדת"/>
+					<Item id="42036" name="ביטול הערת שורה בודדת"/>
+					<Item id="42055" name="הסר שורות ריקות"/>
+					<Item id="42056" name="הסר שורות ריקות (המכילות תווים לבנים)"/>
+					<Item id="42057" name="הכנס שורה ריקה מעל הנוכחית"/>
+					<Item id="42058" name="הכנס שורה ריקה מתחת לנוכחית"/>
+					<Item id="43001" name="&amp;חיפוש..."/>
+					<Item id="43002" name="חפש את ה&amp;בא"/>
+					<Item id="43003" name="ה&amp;חלפה..."/>
+					<Item id="43004" name="&amp;מעבר אל..."/>
+					<Item id="43005" name="החלף סימניה"/>
 					<Item id="43006" name="הסימניה הבאה"/>
-					<Item id="43007" name="סימניה קודמת"/>
-					<Item id="43008" name="נקה סימניות"/>
-					<Item id="43009" name="לך למחרוזת מתאימה"/>
-					<Item id="43010" name="מצא תוצאה קודמת"/>
-					<Item id="43011" name="חפש ברצף עולה"/>
-					<Item id="43013" name="חפש בתוך הקבצים"/>
-					<Item id="43014" name="מצא(הפכפכה)הבא"/>
-					<Item id="43015" name="מצא(הפכפכה)קודם"/>
-					<Item id="43016" name="סמן הכול"/>
-					<Item id="43017" name="בטל סימון הכול"/>
-					<Item id="43018" name="גזור קווי סימניה"/>
-					<Item id="43019" name="העתק קווי סימניה"/>
-					<Item id="43020" name="העתק בשביל להחליף קווי סימניה"/>
-					<Item id="43021" name="מחק קווי סימניה"/>
-					<Item id="43022" name="השתמש בסיגנון 1"/>
-					<Item id="43023" name="נקה סיגנון 1"/>
-					<Item id="43024" name="השתמש בסיגנון 2"/>
-					<Item id="43025" name="נקה סיגנון 2"/>
-					<Item id="43026" name="השתמש בסיגנון 3"/>
-					<Item id="43027" name="נקה סיגנון 3"/>
-					<Item id="43028" name="השתמש בסיגנון 4"/>
-					<Item id="43029" name="נקה סיגנון 4"/>
-					<Item id="43030" name="השתמש בסיגנון 5"/>
-					<Item id="43031" name="נקה סיגנון 5"/>
-					<Item id="43032" name="נקה כל הסיגנונות"/>
-
-					<Item id="44009" name="הרחב את הדף"/>
-					<Item id="44011" name="מצב ללא הסחות-דעת"/>
-					<Item id="44025" name="הצג מרווחים וטאבים"/>
+					<Item id="43007" name="הסימניה הקודמת"/>
+					<Item id="43008" name="נקה את כל הסימניות"/>
+					<Item id="43018" name="גזור שורות עם סימניה"/>
+					<Item id="43019" name="העתק שורות עם סימניה"/>
+					<Item id="43020" name="הדבק ל (החלף) שורות עם סימניה"/>
+					<Item id="43021" name="הסר שורות עם סימניה"/>
+					<Item id="43051" name="הסר שורות ללא סימניה"/>
+					<Item id="43050" name="הפוך סימניות"/>
+					<Item id="43052" name="חפש תווים בטווח..."/>
+					<Item id="43053" name="בחר הכל בין {} [] או ()"/>
+					<Item id="43009" name="עבור לסוגר ה&amp;מתאים"/>
+					<Item id="43010" name="חפש את ה&amp;קודם"/>
+					<Item id="43011" name="חיפוש &amp;מצטבר"/>
+					<Item id="43013" name="חפש בק&amp;בצים"/>
+					<Item id="43014" name="חפש (וולטילי) הבא"/>
+					<Item id="43015" name="חפש (וולטילי) קודם"/>
+					<Item id="43022" name="באמצעות סגנון 1"/>
+					<Item id="43023" name="נקה סגנון 1"/>
+					<Item id="43024" name="באמצעות סגנון 2"/>
+					<Item id="43025" name="נקה סגנון 2"/>
+					<Item id="43026" name="באמצעות סגנון 3"/>
+					<Item id="43027" name="נקה סגנון 3"/>
+					<Item id="43028" name="באמצעות סגנון 4"/>
+					<Item id="43029" name="נקה סגנון 4"/>
+					<Item id="43030" name="באמצעות סגנון 5"/>
+					<Item id="43031" name="נקה סגנון 5"/>
+					<Item id="43032" name="נקה את כל הסגנונות"/>
+					<Item id="43033" name="סגנון 1"/>
+					<Item id="43034" name="סגנון 2"/>
+					<Item id="43035" name="סגנון 3"/>
+					<Item id="43036" name="סגנון 4"/>
+					<Item id="43037" name="סגנון 5"/>
+					<Item id="43038" name="סגנון סימון חיפוש"/>
+					<Item id="43039" name="סגנון 1"/>
+					<Item id="43040" name="סגנון 2"/>
+					<Item id="43041" name="סגנון 3"/>
+					<Item id="43042" name="סגנון 4"/>
+					<Item id="43043" name="סגנון 5"/>
+					<Item id="43044" name="סגנון סימון חיפוש"/>
+					<Item id="43055" name="סגנון 1"/>
+					<Item id="43056" name="סגנון 2"/>
+					<Item id="43057" name="סגנון 3"/>
+					<Item id="43058" name="סגנון 4"/>
+					<Item id="43059" name="סגנון 5"/>
+					<Item id="43060" name="כל הסגנונות"/>
+					<Item id="43061" name="סגנון סימון חיפוש"/>
+					<Item id="43062" name="באמצעות סגנון 1"/>
+					<Item id="43063" name="באמצעות סגנון 2"/>
+					<Item id="43064" name="באמצעות סגנון 3"/>
+					<Item id="43065" name="באמצעות סגנון 4"/>
+					<Item id="43066" name="באמצעות סגנון 5"/>
+					<Item id="43067" name="עבור לשינוי הבא"/>
+					<Item id="43068" name="עבור לשינוי הקודם"/>
+					<Item id="43069" name="נקה היסטוריית שינויים"/>
+					<Item id="43045" name="&amp;חלון תוצאות חיפוש"/>
+					<Item id="43046" name="תוצאת חיפוש ה&amp;באה"/>
+					<Item id="43047" name="תוצאת חיפוש ה&amp;קודמת"/>
+					<Item id="43048" name="&amp;בחר וחפש את הבא"/>
+					<Item id="43049" name="&amp;בחר וחפש את הקודם"/>
+					<Item id="43054" name="ס&amp;ימון..."/>
+					<Item id="43501" name="סגור נבחרים"/>
+					<Item id="43502" name="סגור אחרים"/>
+					<Item id="43503" name="העתק שמות נבחרים"/>
+					<Item id="43504" name="העתק נתיבי שמות נבחרים"/>
+					<Item id="44009" name="Post-It"/>
+					<Item id="44010" name="קפל הכל"/>
+					<Item id="44011" name="מצב ללא הסחות דעת"/>
+					<Item id="44019" name="הצג את כל התווים"/>
+					<Item id="44020" name="הצג מדריך הסטה"/>
+					<Item id="44022" name="גלישת שורות"/>
+					<Item id="44023" name="זום &amp;פנימה (Ctrl+גלגלת עכבר למעלה)"/>
+					<Item id="44024" name="זום ה&amp;חוצה (Ctrl+גלגלת עכבר למטה)"/>
+					<Item id="44025" name="הצג רווח וטאב"/>
 					<Item id="44026" name="הצג סוף שורה"/>
-					<Item id="44019" name="הצג את כל הסימנים המוסתרים"/>
-					<Item id="44027" name="שורת קצה אנכית"/>
-					<Item id="44028" name="שורת קצה מצב רקע"/>
-					<Item id="44020" name="הצג קווי עימוד"/>
-					<Item id="44022" name="עטיפת מילים"/>
-					<Item id="44023" name="התמקדות &amp;פנימה"/>
-					<Item id="44024" name="התמקדות &amp;החוצה"/>
-					<Item id="44032" name="הפעל\בטל מסך מלא"/>
-					<Item id="44033" name="שחזר הגדרות זום לברירת מחדל"/>
+					<Item id="44029" name="פרוס הכל"/>
+					<Item id="44030" name="קפל רמה נוכחית"/>
+					<Item id="44031" name="פרוס רמה נוכחית"/>
+					<Item id="44049" name="סיכום..."/>
+					<Item id="44080" name="מפת מסמך"/>
+					<Item id="44070" name="רשימת מסמכים"/>
+					<Item id="44084" name="רשימת פונקציות"/>
+					<Item id="44085" name="תיקייה כסביבת עבודה"/>
+					<Item id="44086" name="לשונית 1"/>
+					<Item id="44087" name="לשונית 2"/>
+					<Item id="44088" name="לשונית 3"/>
+					<Item id="44089" name="לשונית 4"/>
+					<Item id="44090" name="לשונית 5"/>
+					<Item id="44091" name="לשונית 6"/>
+					<Item id="44092" name="לשונית 7"/>
+					<Item id="44093" name="לשונית 8"/>
+					<Item id="44094" name="לשונית 9"/>
+					<Item id="44116" name="לשונית ראשונה"/>
+					<Item id="44117" name="לשונית אחרונה"/>
+					<Item id="44095" name="לשונית הבאה"/>
+					<Item id="44096" name="לשונית קודמת"/>
+					<Item id="44097" name="ניטור (tail -f)"/>
+					<Item id="44098" name="העבר לשונית קדימה"/>
+					<Item id="44099" name="העבר לשונית אחורה"/>
+					<Item id="44110" name="הסר צבע"/>
+					<Item id="44111" name="החל צבע 1"/>
+					<Item id="44112" name="החל צבע 2"/>
+					<Item id="44113" name="החל צבע 3"/>
+					<Item id="44114" name="החל צבע 4"/>
+					<Item id="44115" name="החל צבע 5"/>
+					<Item id="44130" name="הצג תווים שאינם להדפסה"/>
+					<Item id="44131" name="הצג תווי בקרה &amp;&amp; Unicode EOL"/>
+					<Item id="44032" name="החלף מצב מסך מלא"/>
+					<Item id="44033" name="שחזר זום ברירת מחדל"/>
 					<Item id="44034" name="תמיד עליון"/>
-					<Item id="44035" name="סנכרן גלגול אנכי"/>
-					<Item id="44036" name="סנכרן גלגול אופקי"/>
-					<Item id="44041" name="הראה סמלי עטיפה"/>
-					<Item id="44042" name="החבא קווים"/>
-					<Item id="44070" name="הפעל חלון ראשי"/>
-					<Item id="44071" name="הפעל חלון משני"/>
+					<Item id="44035" name="סנכרן גלילה אנכית"/>
+					<Item id="44036" name="סנכרן גלילה אופקית"/>
+					<Item id="44041" name="הצג סמל גלישה"/>
 					<Item id="44072" name="התמקד בתצוגה אחרת"/>
-					<Item id="44010" name="קפל הכול"/>
-					<Item id="44030" name="אחד את השלב הנוכחי"/>
-					<Item id="44031" name="פצל את השלב הנוכחי"/>
-					<Item id="44029" name="פרוש הכול"/>
-					<Item id="45001" name="קידוד בשיטת פורמט וינדוז"/>
-					<Item id="45002" name="קידוד בשיטת פורמט יוניקס"/>
-					<Item id="45003" name="קידוד בשיטת פורמט מקינטוש"/>
-					<Item id="45004" name="קודד ב ANSI"/>
-					<Item id="45005" name="קודד ב UTF-8"/>
-					<Item id="45006" name="קודד ב UCS-2 אינדיאני גדול"/>
-					<Item id="45007" name="קודד ב UCS-2 אינדיאני קטן"/>
-					<Item id="45008" name="הצג כ UTF-8"/>
+					<Item id="44081" name="פאנל פרויקט 1"/>
+					<Item id="44082" name="פאנל פרויקט 2"/>
+					<Item id="44083" name="פאנל פרויקט 3"/>
+					<Item id="45001" name="Windows (CR LF)"/>
+					<Item id="45002" name="Unix (LF)"/>
+					<Item id="45003" name="Macintosh (CR)"/>
+					<Item id="45004" name="ANSI"/>
+					<Item id="45005" name="UTF-8-BOM"/>
+					<Item id="45006" name="UTF-16 BE BOM"/>
+					<Item id="45007" name="UTF-16 LE BOM"/>
+					<Item id="45008" name="UTF-8"/>
 					<Item id="45009" name="המר ל-ANSI"/>
-					<Item id="45010" name="המר לUTF-8 ללא BOM"/>
-					<Item id="45011" name="המר לUTF-8"/>
-					<Item id="45012" name="המר לUCS-2 אינדיאני גדול"/>
-					<Item id="45013" name="המר לUCS-2 אינדיאני קטן"/>
-					<Item id="10001" name="עבור לתצוגה אחרת"/>
-					<Item id="10002" name="העתק לתצוגה אחרת"/>
-					<Item id="10003" name="העבר לחלון חדש"/>
-					<Item id="10004" name="פתח בחלון חדש"/>
+					<Item id="45010" name="המר ל-UTF-8"/>
+					<Item id="45011" name="המר ל-UTF-8-BOM"/>
+					<Item id="45012" name="המר ל-UTF-16 BE BOM"/>
+					<Item id="45013" name="המר ל-UTF-16 LE BOM"/>
+					<Item id="45060" name="Big5 (מסורתית)"/>
+					<Item id="45061" name="GB2312 (מפושטת)"/>
+					<Item id="45054" name="OEM 861: איסלנדית"/>
+					<Item id="45057" name="OEM 865: נורדית"/>
+					<Item id="45053" name="OEM 860: פורטוגזית"/>
+					<Item id="45056" name="OEM 863: צרפתית"/>
+					<Item id="10001" name="העבר לתצוגה אחרת"/>
+					<Item id="10002" name="שכפל לתצוגה אחרת"/>
+					<Item id="10003" name="העבר למופע חדש"/>
+					<Item id="10004" name="פתח במופע חדש"/>
+					<Item id="10005" name="העבר להתחלה"/>
+					<Item id="10006" name="העבר לסוף"/>
+					<Item id="46001" name="מעצב סגנונות..."/>
+					<Item id="46016" name="ללא (טקסט רגיל)"/>
+					<Item id="46250" name="הגדר את השפה שלך..."/>
+					<Item id="46300" name="פתח תיקיית שפה מוגדרת משתמש..."/>
+					<Item id="46301" name="אוסף שפות מוגדרות משתמש עבור ++Notepad"/>
+					<Item id="46180" name="מוגדר משתמש"/>
+					<Item id="47000" name="אודות ++Notepad"/>
+					<Item id="47010" name="ארגומנטים של שורת הפקודה..."/>
+					<Item id="47001" name="דף הבית של ++Notepad"/>
+					<Item id="47002" name="דף הפרויקט של ++Notepad"/>
+					<Item id="47003" name="מדריך למשתמש מקוון"/>
+					<Item id="47004" name="קהילת ++Notepad (פורום)"/>
+					<Item id="47012" name="מידע ניפוי שגיאות..."/>
+					<Item id="47005" name="קבל עוד תוספים"/>
+					<Item id="47006" name="עדכן את ++Notepad"/>
+					<Item id="47009" name="הגדר פרוקסי לעדכון..."/>
+					<Item id="48005" name="ייבא תוסף(ים)..."/>
+					<Item id="48006" name="ייבא ערכת נושא(ים)..."/>
+					<Item id="48018" name="ערוך תפריט הקשר מוקפץ"/>
+					<Item id="48009" name="ממפה קיצורי דרך..."/>
+					<Item id="48011" name="העדפות..."/>
+					<Item id="48014" name="פתח תיקיית תוספים..."/>
+					<Item id="48015" name="ניהול תוספים..."/>
+					<Item id="49000" name="&amp;הפעלה..."/>
 
-
-					<Item id="46001" name="עיצוב סיגנונות"/>
-					<Item id="46002" name="שפת C"/>
-					<Item id="46003" name="שפת ++C"/>
-					<Item id="46004" name="ג'אווה"/>
-					<Item id="46005" name="שפת תגיות(HTML)"/>
-					<Item id="46006" name="תקן לייצוג נתונים(XML)"/>
-					<Item id="46007" name="ג'אווה סקריפט"/>
-					<Item id="46008" name="שפת תסריט(PHP)"/>
-					<Item id="46009" name="אספ"/>
-					<Item id="46010" name="גיליונות סגנון מדורגים"/>
-					<Item id="46011" name="שפת פסקל"/>
-					<Item id="46012" name="פייטון"/>
-					<Item id="46013" name="שפת פרל"/>
-					<Item id="46014" name="אובייקט-C"/>
-					<Item id="46015" name="סגנון MS-DOS"/>
-					<Item id="46016" name="טקסט נורמלי"/>
-					<Item id="46017" name="קובץ משאב אר-סי"/>
-					<Item id="46018" name="מייקפייל"/>
-					<Item id="46019" name="קובץ MS INI"/>
-					<Item id="46020" name="שפת שאילתות מובנית(SQL)"/>
-					<Item id="46021" name="ויזואל בייסיק"/>
-					<Item id="46022" name="אצווה"/>
-					<Item id="46023" name="שפת #C"/>
-					<Item id="46024" name="לואה"/>
-					<Item id="46025" name="טיסיאקס"/>
-					<Item id="46026" name="פורטן"/>
-					<Item id="46027" name="מעטפת"/>
-					<Item id="46028" name="פלאש/פעולה סקריפט"/>
-					<Item id="46029" name="נסיס"/>
-					<Item id="46030" name="טיסיאל"/>
-					<Item id="46031" name="ליספ"/>
-					<Item id="46032" name="סכמה"/>
-					<Item id="46033" name="אסמבלי"/>
-					<Item id="46034" name="דיף"/>
-					<Item id="46035" name="פרופרטיס"/>
-					<Item id="46036" name="פוסט-סקריפט"/>
-					<Item id="46037" name="רובי"/>
-					<Item id="46038" name="סמולטולק"/>
-					<Item id="46039" name="שפת תיאור חומרה(VHDL)"/>
-					<Item id="46040" name="קאמל"/>
-					<Item id="46041" name="קיקסטארט"/>
-					<Item id="46043" name="ורילוג"/>
-					<Item id="46042" name="עדה"/>
-					<Item id="46044" name="אוטואיט"/>
-					<Item id="46045" name="מאטלאב"/>
-					<Item id="46046" name="האסקל"/>
-					<Item id="46047" name="אינו"/>
-					<Item id="46048" name="סימייק"/>
-					<Item id="46049" name="יאמל"/>
-					<Item id="46180" name="הגדרת משתמש"/>
-
-					<Item id="47000" name="אודות התוכנה"/>
-					<Item id="47001" name="דף הבית ++Notepad"/>
-					<Item id="47002" name="דף פרוייקט ++Notepad"/>
-					<Item id="47003" name="עזרה ברשת"/>
-					<Item id="47004" name="פורום"/>
-					<Item id="47005" name="עזרה ברשת"/>
-					<Item id="47006" name="עדכן ++Notepad"/>
-					<Item id="47007" name="ויקפדיה שאלות ותשובות"/>
-					<Item id="48009" name="קבל עוד תוספים"/>
-					<Item id="48011" name="אפשרויות"/>
-					<Item id="49000" name="הרצה..."/>
 					<Item id="50000" name="השלמת פונקציה"/>
 					<Item id="50001" name="השלמת מילה"/>
-					<Item id="50002" name="רמז פרמטרים לפונקציה"/>
+					<Item id="50002" name="רמז פרמטר פונקציה"/>
+					<Item id="50010" name="רמז קודם לפרמטר פונקציה"/>
+					<Item id="50011" name="רמז הבא לפרמטר פונקציה"/>
+					<Item id="50005" name="החלף הקלטת מאקרו"/>
+					<Item id="50006" name="השלמת נתיב"/>
+					<Item id="44042" name="הסתר שורות"/>
+					<Item id="42040" name="פתח את כל הקבצים האחרונים"/>
+					<Item id="42041" name="רוקן רשימת קבצים אחרונים"/>
+					<Item id="48016" name="שנה קיצור דרך/מחק מאקרו..."/>
+					<Item id="48017" name="שנה קיצור דרך/מחק פקודה..."/>
 
-
+					<Item id="11001" name="&amp;חלונות..."/>
+					<Item id="11002" name="שם א עד ת"/>
+					<Item id="11003" name="שם ת עד א"/>
+					<Item id="11004" name="נתיב א עד ת"/>
+					<Item id="11005" name="נתיב ת עד א"/>
+					<Item id="11006" name="סוג א עד ת"/>
+					<Item id="11007" name="סוג ת עד א"/>
+					<Item id="11008" name="אורך תוכן עולה"/>
+					<Item id="11009" name="אורך תוכן יורד"/>
+					<Item id="11010" name="זמן שינוי עולה"/>
+					<Item id="11011" name="זמן שינוי יורד"/>
 				</Commands>
 			</Main>
-			<Splitter>
-			</Splitter>
 			<TabBar>
-				<Item CMID="0" name="סגור אותי"/>
-				<Item CMID="1" name="סגור את הכל חוץ ממני"/>
-				<Item CMID="2" name="שמור אותי"/>
-				<Item CMID="3" name="שמור אותי בשם..."/>
-				<Item CMID="4" name="הדפס אותי"/>
-				<Item CMID="5" name="עבור לתצוגה אחרת"/>
-				<Item CMID="6" name="שכפל לתצוגה אחרת"/>
-				<Item CMID="7" name="מסלול קובץ מלא לזיכרון"/>
-				<Item CMID="8" name="שם קובץ לזיכרון"/>
-				<Item CMID="9" name="מסלול תיקיה נוכחית לזיכרון"/>
-				<Item CMID="10" name="שנה את שמי"/>
-				<Item CMID="11" name="מחק אותי"/>
-				<Item CMID="12" name="קריאה בלבד"/>
-				<Item CMID="13" name="נקה דגל קריאה בלבד"/>
-				<Item CMID="14" name="העבר לחלון חדש"/>
-				<Item CMID="15" name="פתח בחלון חדש"/>
+				<Item CMDID="41003" name="סגור"/>
+				<Item CMDID="0" name="סגור לשוניות מרובות"/>
+				<Item CMDID="41005" name="סגור הכל חוץ מזה"/>
+				<Item CMDID="41026" name="סגור הכל חוץ מנעוצים"/>
+				<Item CMDID="41009" name="סגור הכל משמאל"/>
+				<Item CMDID="41018" name="סגור הכל מימין"/>
+				<Item CMDID="41024" name="סגור את כל הלא-משתנים"/>
+				<Item CMDID="44048" name="נעץ לשונית" alternativeName="בטל נעוץ לשונית"/>
+				<Item CMDID="41006" name="שמור"/>
+				<Item CMDID="41008" name="שמור בשם..."/>
+				<Item CMDID="1" name="פתח בתוך"/>
+				<Item CMDID="41019" name="פתח תיקייה מכילה בסייר הקבצים"/>
+				<Item CMDID="41020" name="פתח תיקייה מכילה בשורת הפקודה"/>
+				<Item CMDID="41025" name="פתח תיקייה מכילה כסביבת עבודה"/>
+				<Item CMDID="41023" name="פתח בנגן ברירת המחדל"/>
+				<Item CMDID="41017" name="שנה שם..."/>
+				<Item CMDID="41016" name="העבר לסל המיחזור"/>
+				<Item CMDID="41014" name="טען מחדש"/>
+				<Item CMDID="41010" name="הדפס..."/>
+				<Item CMDID="42028" name="קריאה בלבד ב-Notepad++"/>
+				<Item CMDID="42033" name="תכונת קריאה בלבד ב-Windows"/>
+				<Item CMDID="2" name="העתק ללוח"/>
+				<Item CMDID="42029" name="העתק נתיב קובץ מלא"/>
+				<Item CMDID="42030" name="העתק שם קובץ"/>
+				<Item CMDID="42031" name="העתק נתיב תיקייה נוכחית"/>
+				<Item CMDID="3" name="העבר מסמך"/>
+				<Item CMDID="10005" name="העבר להתחלה"/>
+				<Item CMDID="10006" name="העבר לסוף"/>
+				<Item CMDID="10001" name="העבר לתצוגה אחרת"/>
+				<Item CMDID="10002" name="שכפל לתצוגה אחרת"/>
+				<Item CMDID="10003" name="העבר למופע חדש"/>
+				<Item CMDID="10004" name="פתח במופע חדש"/>
+				<Item CMDID="4" name="החל צבע ללשונית"/>
+				<Item CMDID="44111" name="החל צבע 1"/>
+				<Item CMDID="44112" name="החל צבע 2"/>
+				<Item CMDID="44113" name="החל צבע 3"/>
+				<Item CMDID="44114" name="החל צבע 4"/>
+				<Item CMDID="44115" name="החל צבע 5"/>
+				<Item CMDID="44110" name="הסר צבע"/>
 			</TabBar>
+			<TrayIcon>
+				<Item id="43101" name="הפעל"/>
+				<Item id="43102" name="חדש"/>
+				<Item id="43103" name="חדש והדבק"/>
+				<Item id="43104" name="פתח..."/>
+				<Item id="43013" name="חפש בקבצים..."/>
+				<Item id="43105" name="סגור סמל במגש המערכת"/>
+			</TrayIcon>
 		</Menu>
-
 		<Dialog>
-			<Find title="חפש">
-				<Item id="1" name="חפש הבא"/>
+			<Find title="" titleFind="חיפוש" titleReplace="החלפה" titleFindInFiles="חפש בקבצים" titleFindInProjects="חפש בפרויקטים" titleMark="סימון">
+				<Item id="1" name="חפש את הבא"/>
+				<Item id="1722" name="כיוון אחורה"/>
 				<Item id="2" name="סגור"/>
-				<Item id="1620" name="מצא את:"/>
-				<Item id="1603" name="התאם את כל המילה"/>
-				<Item id="1604" name="התאם מקרה"/>
-				<Item id="1605" name="ביטוי רגיל"/>
-				<Item id="1606" name="כרוך מסביב"/>
-				<Item id="1614" name="ספירה"/>
-				<Item id="1615" name="מצא הכל"/>
-				<Item id="1616" name="הדגש שורה"/>
+				<Item id="1620" name="&amp;חפש את:"/>
+				<Item id="1603" name="התאם מילה &amp;שלמה בלבד"/>
+				<Item id="1604" name="התאם &amp;רישיות"/>
+				<Item id="1605" name="ביטוי &amp;רגולרי"/>
+				<Item id="1606" name="&amp;גלישה מסביב"/>
+				<Item id="1614" name="&amp;ספירה"/>
+				<Item id="1615" name="סמן הכל"/>
+				<Item id="1616" name="&amp;סמן שורה בסימניה"/>
 				<Item id="1618" name="נקה בכל חיפוש"/>
-				<Item id="1624" name="מצב חיפוש"/>
-				<Item id="1625" name="נורמלי"/>
-				<Item id="1626" name="מורחב"/>
-				<Item id="1611" name="החלף ב:"/>
+				<Item id="1611" name="ה&amp;חלף ב:"/>
 				<Item id="1608" name="&amp;החלף"/>
 				<Item id="1609" name="החלף ה&amp;כל"/>
-				<Item id="1623" name="קבוצת קופסאות"/>
-				<Item id="1632" name="בבחירה"/>
-				<Item id="1633" name="נקה"/>
-				<Item id="1635" name="החלף הכול בכל המסמכים הפתוחים"/>
-				<Item id="1636" name="מצא הכול בכל המסמכים הפתוחים"/>
-				<Item id="1641" name="מצא הכול במסמך הנוכחי"/>
-				<Item id="1654" name="פילטרים"/>
-				<Item id="1655" name="תיקיה"/>
-				<Item id="1656" name="מצא הכל"/>
-				<Item id="1658" name="בכל תתי התיקיות"/>
-				<Item id="1659" name="בתיקיות חבויות"/>
-				<Item id="1660" name="החלף בקבצים"/>
-				<Item id="1686" name="שקיפות"/>
 				<Item id="1687" name="באובדן מיקוד"/>
 				<Item id="1688" name="תמיד"/>
+				<Item id="1632" name="ב&amp;בחירה"/>
+				<Item id="1633" name="נקה כל הסימונים"/>
+				<Item id="1635" name="החלף הכל בכל המסמכים ה&amp;פתוחים"/>
+				<Item id="1636" name="מצא הכל בכל המסמכים ה&amp;פתוחים"/>
+				<Item id="1654" name="פ&amp;ילטרים:"/>
+				<Item id="1655" name="&amp;תיקייה:"/>
+				<Item id="1656" name="מצא הכל"/>
+				<Item id="1658" name="בכל &amp;תת-התיקיות"/>
+				<Item id="1659" name="בתיקיות &amp;חבויות"/>
+				<Item id="1624" name="מצב חיפוש"/>
+				<Item id="1625" name="&amp;רגיל"/>
+				<Item id="1626" name="&amp;מורחב (\n, \r, \t, \0, \x...)"/>
+				<Item id="1660" name="החלף בקבצים"/>
+				<Item id="1665" name="החלף בפרויקטים"/>
+				<Item id="1662" name="פאנל פרויקט 1"/>
+				<Item id="1663" name="פאנל פרויקט 2"/>
+				<Item id="1664" name="פאנל פרויקט 3"/>
+				<Item id="1641" name="מצא הכל במסמך הנוכחי"/>
+				<Item id="1686" name="&amp;שקיפות"/>
+				<Item id="1703" name="&amp;. מתאים לשורה חדשה"/>
+				<Item id="1721" name="▲"/>
+				<Item id="1723" name="▼ חפש את הבא"/>
+				<Item id="1725" name="העתק טקסט מסומן"/>
+				<Menu>
+					<Item id="1726" name="⇅ החלף בין 'חפש את' ל'החלף ב'"/>
+					<Item id="1727" name="⤵ העתק מ'חפש את' ל'החלף ב'"/>
+					<Item id="1728" name="⤴ העתק מ'החלף ב' ל'חפש את'"/>
+				</Menu>
 			</Find>
-			<ColumnEditor title="עורך עמודות">
-				<Item id="1" name="אישור"/>
-				<Item id="2" name="ביטול"/>
-				<Item id="2023" name="טקסט להכניס"/>
-				<Item id="2033" name="מספר להכניס"/>
-				<Item id="2030" name="מספר התחלתי:"/>
-				<Item id="2032" name="פורמט"/>
-				<Item id="2031" name="הגדל ב:"/>
-				<Item id="2035" name="אפסים עוקבים"/>
-			</ColumnEditor>
-			<GoToLine title="דלג אל שורה...">
-				<Item id="1" name="&amp;דלג !"/>
-				<Item id="2" name="לא הולך לשומקום"/>
-				<Item id="2004" name="אתה כאן :"/>
-				<Item id="2005" name="אתה מדלג אל :"/>
-				<Item id="2006" name="אתה לא יכול לעבור :"/>
-				<Item id="2007" name="שורה"/>
-				<Item id="2008" name="אופסט"/>
+
+			<IncrementalFind title="">
+				<Item id="1681" name="חיפוש:"/>
+				<Item id="1685" name="התאם &amp;רישיות"/>
+				<Item id="1690" name="&amp;הדגש הכל"/>
+			</IncrementalFind>
+
+			<FindCharsInRange title="חיפוש תווים בטווח...">
+				<Item id="2" name="&amp;סגור"/>
+				<Item id="2901" name="תווים &amp;שאינם ASCII (128–255)"/>
+				<Item id="2902" name="תווי &amp;ASCII (0–127)"/>
+				<Item id="2903" name="טווח &amp;מותאם אישית (0–255):"/>
+				<Item id="2906" name="ל&amp;מעלה"/>
+				<Item id="2907" name="ל&amp;מטה"/>
+				<Item id="2908" name="כיוון"/>
+				<Item id="2909" name="&amp;גלישה מסביב"/>
+				<Item id="2910" name="&amp;מצא"/>
+			</FindCharsInRange>
+
+			<GoToLine title="מעבר אל...">
+				<Item id="2007" name="&amp;שורה"/>
+				<Item id="2008" name="&amp;מיקום (Offset)"/>
+				<Item id="1" name="עבור"/>
+				<Item id="2" name="אני לא הולך לשום מקום"/>
+				<Item id="2004" name="אתה כאן:"/>
+				<Item id="2005" name="אתה רוצה לעבור אל:"/>
+				<Item id="2006" name="אתה לא יכול לעבור מעבר ל:"/>
 			</GoToLine>
-			<TabSize>
-				<Item id="2401" name="גודל טאב :"/>
-			</TabSize>
-			<MaxFile>
-				<Item id="2401" name="מקסימום קבצים :"/>
-			</MaxFile>
-			<Run title="...הרצה">
-				<Item id="1903" name="הקלד כאן את התוכנה שברצונך להריץ"/>
-				<Item id="1" name="! הרץ"/>
+
+			<Run title="הפעלה...">
+				<Item id="1903" name="התוכנית להפעלה"/>
+				<Item id="1" name="הפעל"/>
 				<Item id="2" name="ביטול"/>
+				<Item id="1904" name="שמורה..."/>
 			</Run>
-			<StyleConfig title="מעצב סיגנונות">
-				<Item id="2" name="בטל"/>
+
+			<MD5FromFilesDlg title="חולל סיכום MD5 מקבצים">
+				<Item id="1922" name="בחר קבצים ל&amp;חולל MD5..."/>
+				<Item id="1924" name="הע&amp;תק ללוח"/>
+				<Item id="2" name="&amp;סגור"/>
+			</MD5FromFilesDlg>
+
+			<MD5FromTextDlg title="חולל סיכום MD5">
+				<Item id="1932" name="התייחס לכל שורה כמחרוזת &amp;נפרדת"/>
+				<Item id="1934" name="הע&amp;תק ללוח"/>
+				<Item id="2" name="&amp;סגור"/>
+			</MD5FromTextDlg>
+
+			<SHA256FromFilesDlg title="חולל סיכום SHA-256 מקבצים">
+				<Item id="1922" name="בחר קבצים ל&amp;חולל SHA-256..."/>
+				<Item id="1924" name="הע&amp;תק ללוח"/>
+				<Item id="2" name="&amp;סגור"/>
+			</SHA256FromFilesDlg>
+
+			<SHA256FromTextDlg title="חולל סיכום SHA-256">
+				<Item id="1932" name="התייחס לכל שורה כמחרוזת &amp;נפרדת"/>
+				<Item id="1934" name="הע&amp;תק ללוח"/>
+				<Item id="2" name="&amp;סגור"/>
+			</SHA256FromTextDlg>
+
+			<SHA1FromFilesDlg title="חולל סיכום SHA-1 מקבצים">
+				<Item id="1922" name="בחר קבצים ל&amp;חולל SHA-1..."/>
+				<Item id="1924" name="הע&amp;תק ללוח"/>
+				<Item id="2" name="&amp;סגור"/>
+			</SHA1FromFilesDlg>
+
+			<SHA1FromTextDlg title="חולל סיכום SHA-1">
+				<Item id="1932" name="התייחס לכל שורה כמחרוזת &amp;נפרדת"/>
+				<Item id="1934" name="הע&amp;תק ללוח"/>
+				<Item id="2" name="&amp;סגור"/>
+			</SHA1FromTextDlg>
+
+			<SHA512FromFilesDlg title="חולל סיכום SHA-512 מקבצים">
+				<Item id="1922" name="בחר קבצים ל&amp;חולל SHA-512..."/>
+				<Item id="1924" name="הע&amp;תק ללוח"/>
+				<Item id="2" name="&amp;סגור"/>
+			</SHA512FromFilesDlg>
+
+			<SHA512FromTextDlg title="חולל סיכום SHA-512">
+				<Item id="1932" name="התייחס לכל שורה כמחרוזת &amp;נפרדת"/>
+				<Item id="1934" name="הע&amp;תק ללוח"/>
+				<Item id="2" name="&amp;סגור"/>
+			</SHA512FromTextDlg>
+			<PluginsAdminDlg title="ניהול תוספים" titleAvailable="זמינים" titleUpdates="עדכונים" titleInstalled="מותקנים" titleIncompatible="לא תואמים">
+				<ColumnPlugin name="תוסף"/>
+				<ColumnVersion name="גרסה"/>
+				<Item id="5501" name="&amp;חיפוש:"/>
+				<Item id="5503" name="&amp;התקן"/>
+				<Item id="5504" name="&amp;עדכן"/>
+				<Item id="5505" name="&amp;הסר"/>
+				<Item id="5508" name="&amp;הבא"/>
+				<Item id="5509" name="גרסת רשימת תוספים:"/>
+				<Item id="5511" name="מאגר רשימת תוספים"/>
+				<Item id="2" name="סגור"/>
+			</PluginsAdminDlg>
+			<StyleConfig title="מעצב סגנונות">
+				<Item id="2" name="ביטול"/>
 				<Item id="2301" name="שמור &amp;&amp; סגור"/>
 				<Item id="2303" name="שקיפות"/>
-
+				<Item id="2306" name="בחר ערכת נושא: "/>
 				<SubDialog>
-					<Item id="2211" name="תיאור סגנון :"/>
-					<Item id="2210" name="שימו לב : ההגדרה של הסיגנון הזה תהיה ברירת מחדל לכל הסיגנונות הלא מוגדרים"/>
-					<Item id="2212" name="סגנון צבע"/>
-					<Item id="2213" name="סגנון פונט"/>
-					<Item id="2206" name="צבע רקע קדמי"/>
-					<Item id="2207" name="צבע רקע"/>
-					<Item id="2208" name="שם פונט :"/>
-					<Item id="2209" name="גודל פונט :"/>
 					<Item id="2204" name="מודגש"/>
 					<Item id="2205" name="נטוי"/>
-					<Item id="2206" name="רקע קדמי"/>
-					<Item id="2207" name="רקע אחורי"/>
-					<Item id="2214" name="סיומת ברירת מחדל :"/>
-					<Item id="2216" name="סיומת משתמש :"/>
+					<Item id="2206" name="צבע גופן"/>
+					<Item id="2207" name="צבע רקע"/>
+					<Item id="2208" name="שם גופן:"/>
+					<Item id="2209" name="גודל גופן:"/>
+					<Item id="2211" name="סגנון:"/>
+					<Item id="2212" name="סגנון צבע"/>
+					<Item id="2213" name="סגנון גופן"/>
+					<Item id="2214" name="סיומת ברירת מחדל:"/>
+					<Item id="2216" name="סיומת משתמש:"/>
 					<Item id="2218" name="קו תחתי"/>
 					<Item id="2219" name="מילות מפתח ברירת מחדל"/>
-					<Item id="2221" name="מילות מפתח הגדרת משתמש"/>
-					<Item id="2225" name="שפה"/>
-					<Item id="2226" name="אפשר רקע קדמי גלובלית"/>
-					<Item id="2227" name="אפשר רקע אחורי גלובלית"/>
-					<Item id="2228" name="אפשר פונט גלובלי"/>
-					<Item id="2229" name="אפשר גודל פונט גלובלי"/>
-					<Item id="2230" name="אפשר פונט בולט גלובלי"/>
-					<Item id="2231" name="אפשר פונט נטוי גלובלי"/>
-					<Item id="2232" name="אפשר פונט קו תחתי גלובלי"/>
-					<Item id="2306" name="בחר ערכת נושא :"/>
+					<Item id="2221" name="מילות מפתח מוגדרות משתמש"/>
+					<Item id="2225" name="שפה:"/>
+					<Item id="2226" name="אכוף צבע גופן לכל הסגנונות"/>
+					<Item id="2227" name="אכוף צבע רקע לכל הסגנונות"/>
+					<Item id="2228" name="אכוף בחירת גופן לכל הסגנונות"/>
+					<Item id="2229" name="אכוף בחירת גודל גופן לכל הסגנונות"/>
+					<Item id="2230" name="אכוף בחירת כתב מודגש לכל הסגנונות"/>
+					<Item id="2231" name="אכוף בחירת כתב נטוי לכל הסגנונות"/>
+					<Item id="2232" name="אכוף בחירת קו תחתי לכל הסגנונות"/>
+					<Item id="2234" name="עבור להגדרות"/>
+					<Item id="2235" name="מהו 'עקיפה גלובלית'?"/>
 				</SubDialog>
-
 			</StyleConfig>
-			<UserDefine title="הגדרת משתמש">
+
+			<ShortcutMapper title="ממפה קיצורי דרך">
+				<Item id="2602" name="שנה"/>
+				<Item id="2603" name="מחק"/>
+				<Item id="2606" name="נקה"/>
+				<Item id="2607" name="סינון: "/>
+				<Item id="1" name="סגור"/>
+				<ColumnName name="שם"/>
+				<ColumnShortcut name="קיצור דרך"/>
+				<ColumnCategory name="קטגוריה"/>
+				<ColumnPlugin name="תוסף"/>
+				<MainMenuTab name="תפריט ראשי"/>
+				<MacrosTab name="מאקרואים"/>
+				<RunCommandsTab name="פקודות הפעלה"/>
+				<PluginCommandsTab name="פקודות תוספים"/>
+				<ScintillaCommandsTab name="פקודות Scintilla"/>
+				<ConflictInfoOk name="אין התנגשויות של קיצורי דרך עבור פריט זה."/>
+				<ConflictInfoEditing name="אין התנגשויות . . ."/>
+				<AboutCategory name="אודות"/>
+				<ModifyContextMenu name="שנה"/>
+				<DeleteContextMenu name="מחק"/>
+				<ClearContextMenu name="נקה"/>
+				<MainCommandNames>
+					<Item id="41019" name="פתח תיקייה מכילה בסייר הקבצים"/>
+					<Item id="41020" name="פתח תיקייה מכילה בשורת הפקודה"/>
+					<Item id="41021" name="שחזר קובץ שנסגר לאחרונה"/>
+					<Item id="45001" name="המרת סוף שורה ל-Windows (CR LF)"/>
+					<Item id="45002" name="המרת סוף שורה ל-Unix (LF)"/>
+					<Item id="45003" name="המרת סוף שורה ל-Macintosh (CR)"/>
+					<Item id="43022" name="סגנן הכל באמצעות סגנון 1"/>
+					<Item id="43024" name="סגנן הכל באמצעות סגנון 2"/>
+					<Item id="43026" name="סגנן הכל באמצעות סגנון 3"/>
+					<Item id="43028" name="סגנן הכל באמצעות סגנון 4"/>
+					<Item id="43030" name="סגנן הכל באמצעות סגנון 5"/>
+					<Item id="43062" name="סגנן אחד באמצעות סגנון 1"/>
+					<Item id="43063" name="סגנן אחד באמצעות סגנון 2"/>
+					<Item id="43064" name="סגנן אחד באמצעות סגנון 3"/>
+					<Item id="43065" name="סגנן אחד באמצעות סגנון 4"/>
+					<Item id="43066" name="סגנן אחד באמצעות סגנון 5"/>
+					<Item id="43023" name="נקה סגנון 1"/>
+					<Item id="43025" name="נקה סגנון 2"/>
+					<Item id="43027" name="נקה סגנון 3"/>
+					<Item id="43029" name="נקה סגנון 4"/>
+					<Item id="43031" name="נקה סגנון 5"/>
+					<Item id="43032" name="נקה את כל הסגנונות"/>
+					<Item id="43033" name="סגנון קודם של סגנון 1"/>
+					<Item id="43034" name="סגנון קודם של סגנון 2"/>
+					<Item id="43035" name="סגנון קודם של סגנון 3"/>
+					<Item id="43036" name="סגנון קודם של סגנון 4"/>
+					<Item id="43037" name="סגנון קודם של סגנון 5"/>
+					<Item id="43038" name="סגנון קודם של 'סגנון סימון חיפוש'"/>
+					<Item id="43039" name="סגנון הבא של סגנון 1"/>
+					<Item id="43040" name="סגנון הבא של סגנון 2"/>
+					<Item id="43041" name="סגנון הבא של סגנון 3"/>
+					<Item id="43042" name="סגנון הבא של סגנון 4"/>
+					<Item id="43043" name="סגנון הבא של סגנון 5"/>
+					<Item id="43044" name="סגנון הבא של 'סגנון סימון חיפוש'"/>
+					<Item id="43055" name="העתק טקסט מסוגנן של סגנון 1"/>
+					<Item id="43056" name="העתק טקסט מסוגנן של סגנון 2"/>
+					<Item id="43057" name="העתק טקסט מסוגנן של סגנון 3"/>
+					<Item id="43058" name="העתק טקסט מסוגנן של סגנון 4"/>
+					<Item id="43059" name="העתק טקסט מסוגנן של סגנון 5"/>
+					<Item id="43060" name="העתק טקסט מסוגנן של כל הסגנונות"/>
+					<Item id="43061" name="העתק טקסט מסוגנן של 'סגנון סימון חיפוש'"/>
+					<Item id="44100" name="הצג קובץ נוכחי ב-Firefox"/>
+					<Item id="44101" name="הצג קובץ נוכחי ב-Chrome"/>
+					<Item id="44103" name="הצג קובץ נוכחי ב-IE"/>
+					<Item id="44102" name="הצג קובץ נוכחי ב-Edge"/>
+					<Item id="50003" name="עבור למסמך הקודם"/>
+					<Item id="50004" name="עבור למסמך הבא"/>
+					<Item id="44051" name="קיפול רמה 1"/>
+					<Item id="44052" name="קיפול רמה 2"/>
+					<Item id="44053" name="קיפול רמה 3"/>
+					<Item id="44054" name="קיפול רמה 4"/>
+					<Item id="44055" name="קיפול רמה 5"/>
+					<Item id="44056" name="קיפול רמה 6"/>
+					<Item id="44057" name="קיפול רמה 7"/>
+					<Item id="44058" name="קיפול רמה 8"/>
+					<Item id="44061" name="פריסת רמה 1"/>
+					<Item id="44062" name="פריסת רמה 2"/>
+					<Item id="44063" name="פריסת רמה 3"/>
+					<Item id="44064" name="פריסת רמה 4"/>
+					<Item id="44065" name="פריסת רמה 5"/>
+					<Item id="44066" name="פריסת רמה 6"/>
+					<Item id="44067" name="פריסת רמה 7"/>
+					<Item id="44068" name="פריסת רמה 8"/>
+					<Item id="44081" name="החלף מצב פאנל פרויקט 1"/>
+					<Item id="44082" name="החלף מצב פאנל פרויקט 2"/>
+					<Item id="44083" name="החלף מצב פאנל פרויקט 3"/>
+					<Item id="44085" name="החלף מצב תיקייה כסביבת עבודה"/>
+					<Item id="44080" name="החלף מצב מפת מסמך"/>
+					<Item id="44070" name="החלף מצב רשימת מסמכים"/>
+					<Item id="44084" name="החלף מצב רשימת פונקציות"/>
+					<Item id="50005" name="החלף מצב הקלטת מאקרו"/>
+					<Item id="44104" name="עבור לפאנל פרויקט 1"/>
+					<Item id="44105" name="עבור לפאנל פרויקט 2"/>
+					<Item id="44106" name="עבור לפאנל פרויקט 3"/>
+					<Item id="44107" name="עבור לתיקייה כסביבת עבודה"/>
+					<Item id="44109" name="עבור לרשימת מסמכים"/>
+					<Item id="44108" name="עבור לרשימת פונקציות"/>
+					<Item id="44110" name="הסר צבע לשונית"/>
+					<Item id="44111" name="החל צבע לשונית 1"/>
+					<Item id="44112" name="החל צבע לשונית 2"/>
+					<Item id="44113" name="החל צבע לשונית 3"/>
+					<Item id="44114" name="החל צבע לשונית 4"/>
+					<Item id="44115" name="החל צבע לשונית 5"/>
+					<Item id="11002" name="מיין לפי שם (א עד ת)"/>
+					<Item id="11003" name="מיין לפי שם (ת עד א)"/>
+					<Item id="11004" name="מיין לפי נתיב (א עד ת)"/>
+					<Item id="11005" name="מיין לפי נתיב (ת עד א)"/>
+					<Item id="11006" name="מיין לפי סוג (א עד ת)"/>
+					<Item id="11007" name="מיין לפי סוג (ת עד א)"/>
+					<Item id="11008" name="מיין לפי אורך תוכן עולה"/>
+					<Item id="11009" name="מיין לפי אורך תוכן יורד"/>
+				</MainCommandNames>
+			</ShortcutMapper>
+			<ShortcutMapperSubDialg title="קיצור דרך">
+				<Item id="1" name="אישור"/>
+				<Item id="2" name="ביטול"/>
+				<Item id="5006" name="שם"/>
+				<Item id="5008" name="הוסף"/>
+				<Item id="5009" name="הסר"/>
+				<Item id="5010" name="החל"/>
+				<Item id="5007" name="פעולה זו תסיר את קיצור הדרך מפקודה זו"/>
+				<Item id="5012" name="נמצאה התנגשות!"/>
+			</ShortcutMapperSubDialg>
+			<UserDefine title="מוגדר משתמש">
+				<Item id="20001" name="עגן"/>
 				<Item id="20002" name="שנה שם"/>
 				<Item id="20003" name="צור חדש..."/>
 				<Item id="20004" name="הסר"/>
-				<Item id="20005" name="שמור כ..."/>
-				<Item id="20007" name="שפת משתמש : "/>
-				<Item id="20009" name="סיומת :"/>
-				<Item id="20012" name="התעלם ממקרה"/>
+				<Item id="20005" name="שמור בשם..."/>
+				<Item id="20007" name="שפת משתמש"/>
+				<Item id="20009" name="סיומת:"/>
+				<Item id="20012" name="התעלם מסימני רישיות"/>
 				<Item id="20011" name="שקיפות"/>
-				<Item id="0" name="סגנון צבע"/>
-				<Item id="1" name="צבע רקע קדמי"/>
-				<Item id="2" name="צבע רקע"/>
-				<Item id="3" name="סגנון פונט"/>
-				<Item id="4" name="שם פונט :"/>
-				<Item id="5" name="גודל פונט :"/>
-				<Item id="6" name="מודגש"/>
-				<Item id="7" name="נטוי"/>
-				<Item id="8" name="קו תחתי"/>
-				<Item id="10" name="התייחס למילת מפתח כסמל"/>
-				<Folder title="תיקיה ברירת מחדל">
-					<Item id="21101" name="הגדרות סיגנון ברירת מחדל"/>
-					<Item id="21201" name="הגדרת מילות מפתח פתיחת תיקיה"/>
-					<Item id="21301" name="הגדרת מילות מפתח סגירת תיקיה"/>
+				<Item id="20015" name="ייבוא..."/>
+				<Item id="20016" name="ייצוא..."/>
+				<Item id="20017" name="בטל עגינה"/>
+				<StylerDialog title="דיאלוג מעצב">
+					<Item id="25030" name="אפשרויות גופן"/>
+					<Item id="25006" name="צבע גופן"/>
+					<Item id="25007" name="צבע רקע"/>
+					<Item id="25031" name="שם:"/>
+					<Item id="25032" name="גודל:"/>
+					<Item id="25001" name="מודגש"/>
+					<Item id="25002" name="נטוי"/>
+					<Item id="25003" name="קו תחתי"/>
+					<Item id="25029" name="קינון (Nesting)"/>
+					<Item id="25008" name="מפריד 1"/>
+					<Item id="25009" name="מפריד 2"/>
+					<Item id="25010" name="מפריד 3"/>
+					<Item id="25011" name="מפריד 4"/>
+					<Item id="25012" name="מפריד 5"/>
+					<Item id="25013" name="מפריד 6"/>
+					<Item id="25014" name="מפריד 7"/>
+					<Item id="25015" name="מפריד 8"/>
+					<Item id="25018" name="מילת מפתח 1"/>
+					<Item id="25019" name="מילת מפתח 2"/>
+					<Item id="25020" name="מילת מפתח 3"/>
+					<Item id="25021" name="מילת מפתח 4"/>
+					<Item id="25022" name="מילת מפתח 5"/>
+					<Item id="25023" name="מילת מפתח 6"/>
+					<Item id="25024" name="מילת מפתח 7"/>
+					<Item id="25025" name="מילת מפתח 8"/>
+					<Item id="25016" name="הערה"/>
+					<Item id="25017" name="שורת הערה"/>
+					<Item id="25026" name="מפעיל 1"/>
+					<Item id="25027" name="מפעיל 2"/>
+					<Item id="25028" name="מספרים"/>
+					<Item id="25033" name="שקוף"/>
+					<Item id="25034" name="שקוף"/>
+					<Item id="1" name="אישור"/>
+					<Item id="2" name="ביטול"/>
+				</StylerDialog>
+				<Folder title="תיקייה &amp;&amp; ברירת מחדל">
+					<Item id="21101" name="סגנון ברירת מחדל"/>
+					<Item id="21102" name="מעצב"/>
+					<Item id="21103" name="עזרה מקוונת לשפות מוגדרות משתמש"/>
+					<Item id="21105" name="תיעוד"/>
+					<Item id="21106" name="קיפול מהודק (מקפל גם שורות ריקות)"/>
+					<Item id="21220" name="קיפול בסגנון קוד 1"/>
+					<Item id="21224" name="פתיחה:"/>
+					<Item id="21225" name="אמצע:"/>
+					<Item id="21226" name="סגירה:"/>
+					<Item id="21227" name="מעצב"/>
+					<Item id="21320" name="קיפול בסגנון קוד 2 (דרושים מפרידים)"/>
+					<Item id="21324" name="פתיחה:"/>
+					<Item id="21325" name="אמצע:"/>
+					<Item id="21326" name="סגירה:"/>
+					<Item id="21327" name="מעצב"/>
+					<Item id="21420" name="קיפול בסגנון הערה"/>
+					<Item id="21424" name="פתיחה:"/>
+					<Item id="21425" name="אמצע:"/>
+					<Item id="21426" name="סגירה:"/>
+					<Item id="21427" name="מעצב"/>
 				</Folder>
 				<Keywords title="רשימות מילות מפתח">
-					<Item id="22101" name="קבוצה ראשונה"/>
-					<Item id="22201" name="קבוצה שנייה"/>
-					<Item id="22301" name="קבוצה שלישית"/>
-					<Item id="22401" name="קבוצה רביעית"/>
-					<Item id="22113" name="מצב הקדמה"/>
-					<Item id="22213" name="מצב הקדמה"/>
-					<Item id="22313" name="מצב הקדמה"/>
-					<Item id="22413" name="מצב הקדמה"/>
+					<Item id="22101" name="קבוצה 1"/>
+					<Item id="22201" name="קבוצה 2"/>
+					<Item id="22301" name="קבוצה 3"/>
+					<Item id="22401" name="קבוצה 4"/>
+					<Item id="22451" name="קבוצה 5"/>
+					<Item id="22501" name="קבוצה 6"/>
+					<Item id="22551" name="קבוצה 7"/>
+					<Item id="22601" name="קבוצה 8"/>
+					<Item id="22121" name="מצב קידומת (Prefix)"/>
+					<Item id="22221" name="מצב קידומת (Prefix)"/>
+					<Item id="22321" name="מצב קידומת (Prefix)"/>
+					<Item id="22421" name="מצב קידומת (Prefix)"/>
+					<Item id="22471" name="מצב קידומת (Prefix)"/>
+					<Item id="22521" name="מצב קידומת (Prefix)"/>
+					<Item id="22571" name="מצב קידומת (Prefix)"/>
+					<Item id="22621" name="מצב קידומת (Prefix)"/>
+					<Item id="22122" name="מעצב"/>
+					<Item id="22222" name="מעצב"/>
+					<Item id="22322" name="מעצב"/>
+					<Item id="22422" name="מעצב"/>
+					<Item id="22472" name="מעצב"/>
+					<Item id="22522" name="מעצב"/>
+					<Item id="22572" name="מעצב"/>
+					<Item id="22622" name="מעצב"/>
 				</Keywords>
-				<Comment title="מספר הערה">
-					<Item id="23301" name="שורת הערה"/>
-					<Item id="23101" name="חסום הערה"/>
-					<Item id="23113" name="פתח הערה :"/>
-					<Item id="23115" name="סגור הערה :"/>
-					<Item id="23116" name="התייחס למילת מפתח כסמל"/>
-					<Item id="23117" name="התייחס למילות מפתח כסמל"/>
-					<Item id="23201" name="מספר"/>
+				<Comment title="הערה &amp;&amp; מספר">
+					<Item id="23003" name="מיקום הערת שורה"/>
+					<Item id="23004" name="אפשר בכל מקום"/>
+					<Item id="23005" name="אכוף בתחילת שורה"/>
+					<Item id="23006" name="אפשר רווחים מקדימים"/>
+					<Item id="23001" name="אפשר קיפול הערות"/>
+					<Item id="23326" name="מעצב"/>
+					<Item id="23323" name="פתיחה"/>
+					<Item id="23324" name="תו המשך"/>
+					<Item id="23325" name="סגירה"/>
+					<Item id="23301" name="סגנון שורת הערה"/>
+					<Item id="23124" name="מעצב"/>
+					<Item id="23122" name="פתיחה"/>
+					<Item id="23123" name="סגירה"/>
+					<Item id="23101" name="סגנון הערה"/>
+					<Item id="23201" name="סגנון מספר"/>
+					<Item id="23220" name="מעצב"/>
+					<Item id="23230" name="קידומת 1"/>
+					<Item id="23232" name="קידומת 2"/>
+					<Item id="23234" name="תוספות 1"/>
+					<Item id="23236" name="תוספות 2"/>
+					<Item id="23238" name="סיומת 1"/>
+					<Item id="23240" name="סיומת 2"/>
+					<Item id="23242" name="טווח:"/>
+					<Item id="23244" name="מפריד עשרוני"/>
+					<Item id="23245" name="נקודה"/>
+					<Item id="23246" name="פסיק"/>
+					<Item id="23247" name="שניהם"/>
 				</Comment>
-				<Operator title="מפעילים">
-					<Item id="24107" name="מפעיל"/>
-					<Item id="24103" name="סמלים זמינים"/>
-					<Item id="24101" name="מפעילים מופעלים"/>
+				<Operator title="מפעילים &amp;&amp; מפריד">
+					<Item id="24101" name="סגנון מפעילים"/>
+					<Item id="24113" name="מעצב"/>
+					<Item id="24116" name="מפעילים 1"/>
+					<Item id="24117" name="מפעילים 2 (דרושים מפרידים)"/>
+					<Item id="24201" name="סגנון מפריד 1"/>
+					<Item id="24220" name="פתיחה:"/>
+					<Item id="24221" name="Escape:"/>
+					<Item id="24220" name="סגירה:"/>
+					<Item id="24223" name="מעצב"/>
+					<Item id="24301" name="סגנון מפריד 2"/>
+					<Item id="24320" name="פתיחה:"/>
+					<Item id="24321" name="Escape:"/>
+					<Item id="24322" name="סגירה:"/>
+					<Item id="24323" name="מעצב"/>
+					<Item id="24401" name="סגנון מפריד 3"/>
+					<Item id="24420" name="פתיחה:"/>
+					<Item id="24421" name="Escape:"/>
+					<Item id="24422" name="סגירה:"/>
+					<Item id="24423" name="מעצב"/>
+					<Item id="24451" name="סגנון מפריד 4"/>
+					<Item id="24470" name="פתיחה:"/>
+					<Item id="24471" name="Escape:"/>
+					<Item id="24472" name="סגירה:"/>
+					<Item id="24473" name="מעצב"/>
+					<Item id="24501" name="סגנון מפריד 5"/>
+					<Item id="24520" name="פתיחה:"/>
+					<Item id="24521" name="Escape:"/>
+					<Item id="24522" name="סגירה:"/>
+					<Item id="24523" name="מעצב"/>
+					<Item id="24551" name="סגנון מפריד 6"/>
+					<Item id="24570" name="פתיחה:"/>
+					<Item id="24571" name="Escape:"/>
+					<Item id="24572" name="סגירה:"/>
+					<Item id="24573" name="מעצב"/>
+					<Item id="24601" name="סגנון מפריד 7"/>
+					<Item id="24620" name="פתיחה:"/>
+					<Item id="24621" name="Escape:"/>
+					<Item id="24622" name="סגירה:"/>
+					<Item id="24623" name="מעצב"/>
+					<Item id="24651" name="סגנון מפריד 8"/>
+					<Item id="24670" name="פתיחה:"/>
+					<Item id="24671" name="Escape:"/>
+					<Item id="24672" name="סגירה:"/>
+					<Item id="24673" name="מעצב"/>
 				</Operator>
 			</UserDefine>
+			<Preference title="העדפות">
+				<Item id="6001" name="סגור"/>
+				<Global title="כללי">
+					<Item id="6123" name="שפה (Localization)"/>
+					<Item id="6131" name="תפריט"/>
+					<Item id="6122" name="הסתר (השתמש במקש Alt או F10 כדי להחליף)"/>
+					<Item id="6132" name="הסתר קיצורי דרך ימניים ＋ ▼ ✕"/>
+					<Item id="6133" name="שורת מצב"/>
+					<Item id="6134" name="הסתר"/>
+				</Global>
+				<Toolbar title="סרגל כלים">
+					<Item id="6102" name="הסתר"/>
+					<Item id="6103" name="Fluent UI: קטן"/>
+					<Item id="6104" name="Fluent UI: גדול"/>
+					<Item id="6129" name="Filled Fluent UI: קטן"/>
+					<Item id="6130" name="Filled Fluent UI: גדול"/>
+					<Item id="6105" name="סמלים סטנדרטיים: קטנים"/>
+					<Item id="6011" name="צביעה"/>
+					<Item id="6012" name="מלאה"/>
+					<Item id="6013" name="חלקית"/>
+					<Item id="6014" name="בחירת צבע"/>
+					<Item id="6015" name="ברירת מחדל"/>
+					<Item id="6016" name="אדום"/>
+					<Item id="6017" name="ירוק"/>
+					<Item id="6018" name="כחול"/>
+					<Item id="6019" name="סגול"/>
+					<Item id="6020" name="ציאן"/>
+					<Item id="6021" name="זית"/>
+					<Item id="6022" name="צהוב"/>
+					<Item id="6023" name="צבע מערכת"/>
+					<Item id="6024" name="מותאם אישית"/>
+				</Toolbar>
+
+				<Tabbar title="סרגל לשוניות">
+					<Item id="6107" name="צמצם"/>
+					<Item id="6108" name="נעל (ללא גרירה ושחרור)"/>
+					<Item id="6109" name="שנה צבע לשונית לא פעילה"/>
+					<Item id="6110" name="שרטט פס צבעוני על הלשונית הפעילה"/>
+					<Item id="6111" name="הצג כפתורים בלשוניות לא פעילות"/>
+					<Item id="6112" name="הצג כפתור סגירה"/>
+					<Item id="6113" name="לחיצה כפולה לסגירת מסמך"/>
+					<Item id="6115" name="אפשר תכונת נעילת לשונית"/>
+					<Item id="6135" name="הצג רק כפתור נעוץ"/>
+					<Item id="6118" name="הסתר"/>
+					<Item id="6119" name="שורות מרובות"/>
+					<Item id="6120" name="אנכי"/>
+					<Item id="6121" name="צא בסגירת הלשונית האחרונה"/>
+					<Item id="6128" name="סמלים חלופיים"/>
+					<Item id="6125" name="התנהגות"/>
+					<Item id="6126" name="מראה ותחושה"/>
+					<Item id="6136" name="אורך תווית לשונית מקסימלי:"/>
+				</Tabbar>
+
+				<Scintillas title="עריכה 1">
+					<Item id="6216" name="הגדרות סמן (Caret)"/>
+					<Item id="6217" name="רוחב:"/>
+					<Item id="6219" name="קצב הבהוב:"/>
+					<Item id="6221" name="מ"/>
+					<Item id="6222" name="א"/>
+					<Item id="6246" name="הפוך פקודות קיפול/פריסה של רמה נוכחית לניתנות להחלפה (Toggle)"/>
+					<Item id="6227" name="גלישת שורה"/>
+					<Item id="6228" name="ברירת מחדל"/>
+					<Item id="6229" name="מיושרת"/>
+					<Item id="6230" name="מוסטת"/>
+					<Item id="6234" name="בטל תכונת גלילה מתקדמת עקב בעיית משטח מגע (Touchpad)"/>
+					<Item id="6215" name="אפשר גופן חלק"/>
+					<Item id="6236" name="אפשר גלילה מעבר לשורה האחרונה"/>
+					<Item id="6239" name="שמור על הבחירה בעת לחיצה ימנית מחוץ לבחירה"/>
+					<Item id="6245" name="אפשר רווח וירטואלי"/>
+					<Item id="6214" name="אפשר העתק/גזור שורה ללא בחירה"/>
+					<Item id="6225" name="החל צבע מותאם אישית על גופן הטקסט הנבחר"/>
+					<Item id="6651" name="סימון שורה נוכחית"/>
+					<Item id="6652" name="ללא"/>
+					<Item id="6653" name="הדגש רקע"/>
+					<Item id="6654" name="מסגרת"/>
+					<Item id="6655" name="רוחב:"/>
+				</Scintillas>
+
+				<Scintillas2 title="עריכה 2">
+					<Item id="6521" name="עריכה מרובה"/>
+					<Item id="6522" name="אפשר עריכה מרובה (Ctrl+לחיצת עכבר/בחירה)"/>
+					<Item id="6523" name="אפשר בחירת עמודה עבור עריכה מרובה"/>
+					<Item id="6247" name="סוף שורה (CRLF)"/>
+					<Item id="6248" name="ברירת מחדל"/>
+					<Item id="6249" name="טקסט פשוט"/>
+					<Item id="6250" name="צבע מותאם אישית"/>
+					<Item id="6252" name="תווים שאינם להדפסה"/>
+					<Item id="6260" name="מראה"/>
+					<Item id="6254" name="קיצור"/>
+					<Item id="6255" name="נקודת קוד (Codepoint)"/>
+					<Item id="6256" name="צבע מותאם אישית"/>
+					<Item id="6258" name="החל הגדרות מראה על C0, C1 &amp;&amp; Unicode EOL"/>
+					<Item id="6259" name="מנע הקלדת תווי בקרה (C0) לתוך המסמך"/>
+				</Scintillas2>
+
+				<DarkMode title="מצב כהה">
+					<Item id="7131" name="מצב בהיר"/>
+					<Item id="7132" name="מצב כהה"/>
+					<Item id="7133" name="עקוב אחר Windows"/>
+					<Item id="7102" name="שחור"/>
+					<Item id="7103" name="אדום"/>
+					<Item id="7104" name="ירוק"/>
+					<Item id="7105" name="כחול"/>
+					<Item id="7107" name="סגול"/>
+					<Item id="7108" name="ציאן"/>
+					<Item id="7109" name="זית"/>
+					<Item id="7115" name="מותאם אישית"/>
+					<Item id="7116" name="רקע תוכן"/>
+					<Item id="7117" name="פריט במעבר עכבר"/>
+					<Item id="7118" name="רקע בקרים"/>
+					<Item id="7119" name="רקע דיאלוג"/>
+					<Item id="7120" name="שגיאה"/>
+					<Item id="7121" name="טקסט"/>
+					<Item id="7122" name="טקסט כהה יותר"/>
+					<Item id="7123" name="טקסט מושבת"/>
+					<Item id="7124" name="קצה"/>
+					<Item id="7125" name="קישור"/>
+					<Item id="7126" name="הדגשת קצה"/>
+					<Item id="7127" name="קצה מושבת"/>
+					<Item id="7130" name="איפוס"/>
+					<Item id="7135" name="גוונים"/>
+				</DarkMode>
+
+				<MarginsBorderEdge title="שוליים/מסגרת/קצה">
+					<Item id="6201" name="סגנון שולי קיפול"/>
+					<Item id="6202" name="פשוט"/>
+					<Item id="6203" name="חץ"/>
+					<Item id="6204" name="עץ מעגלים"/>
+					<Item id="6205" name="עץ קופסאות"/>
+					<Item id="6226" name="ללא"/>
+					<Item id="6291" name="מספר שורה"/>
+					<Item id="6206" name="הצגה"/>
+					<Item id="6292" name="רוחב דינמי"/>
+					<Item id="6293" name="רוחב קבוע"/>
+					<Item id="6207" name="הצג סימניה"/>
+					<Item id="6295" name="היסטוריית שינויים"/>
+					<Item id="6223" name="הצג בשוליים"/>
+					<Item id="6296" name="הצג בטקסט"/>
+					<Item id="6211" name="הגדרות קצה אנכי"/>
+					<Item id="6213" name="מצב רקע"/>
+					<Item id="6231" name="רוחב מסגרת"/>
+					<Item id="6235" name="ללא קצה"/>
+					<Item id="6208" name="ריפוד (Padding)"/>
+					<Item id="6209" name="שמאל"/>
+					<Item id="6210" name="ימין"/>
+					<Item id="6212" name="ללא הסחות דעת"/>
+				</MarginsBorderEdge>
+
+				<NewDoc title="מסמך חדש">
+					<Item id="6401" name="פורמט (סוף שורה)"/>
+					<Item id="6402" name="Windows (CR LF)"/>
+					<Item id="6403" name="Unix (LF)"/>
+					<Item id="6404" name="Macintosh (CR)"/>
+					<Item id="6405" name="קידוד"/>
+					<Item id="6406" name="ANSI"/>
+					<Item id="6407" name="UTF-8"/>
+					<Item id="6408" name="UTF-8 עם BOM"/>
+					<Item id="6409" name="UTF-16 Big Endian עם BOM"/>
+					<Item id="6410" name="UTF-16 Little Endian עם BOM"/>
+					<Item id="6411" name="שפת ברירת מחדל:"/>
+					<Item id="6419" name="מסמך חדש"/>
+					<Item id="6420" name="החל על קבצי ANSI פתוחים"/>
+					<Item id="6432" name="פתח תמיד מסמך חדש נוסף בהפעלה"/>
+					<Item id="6433" name="השתמש בשורה הראשונה של המסמך כשם הלשונית ללא שם"/>
+				</NewDoc>
+
+				<DefaultDir title="תיקיית ברירת מחדל">
+					<Item id="6413" name="תיקיית ברירת מחדל לפתיחה/שמירת קבצים"/>
+					<Item id="6414" name="עקוב אחר המסמך הנוכחי"/>
+					<Item id="6415" name="זכור את התיקייה האחרונה ששימשה"/>
+					<Item id="6431" name="פתח את כל קבצי התיקייה במקום להפעיל 'תיקייה כסביבת עבודה' בעת גרירת תיקייה"/>
+				</DefaultDir>
+
+				<FileAssoc title="שיוך קבצים">
+					<Item id="4008" name="אנא צא מהתוכנה והפעל אותה מחדש כמנהל (Administrator) כדי להשתמש בתכונה זו."/>
+					<Item id="4009" name="סיומות נתמכות:"/>
+					<Item id="4010" name="סיומות רשומות:"/>
+				</FileAssoc>
+
+				<Language title="שפה">
+					<Item id="6505" name="פריטים זמינים"/>
+					<Item id="6506" name="פריטים מושבתים"/>
+					<Item id="6507" name="הפוך את תפריט השפה לדחוס"/>
+					<Item id="6508" name="תפריט שפה"/>
+					<Item id="6335" name="התייחס ללוכסן שמאלי (backslash) כתו Escape עבור SQL"/>
+				</Language>
+
+				<Indentation title="הסטה">
+					<Item id="7161" name="הסטה אוטומטית"/>
+					<Item id="7162" name="ללא"/>
+					<Item id="7163" name="בסיסית"/>
+					<Item id="7164" name="מתקדמת"/>
+					<Item id="6301" name="הגדרות הסטה"/>
+					<Item id="6302" name="תווי רווח"/>
+					<Item id="6303" name="גודל הסטה:"/>
+					<Item id="6310" name="הסטה באמצעות:"/>
+					<Item id="6311" name="תו טאב (Tab)"/>
+					<Item id="6510" name="השתמש בערך ברירת מחדל"/>
+					<Item id="6512" name="מקש Backspace מבטל הסטה במקום להסיר רווח בודד"/>
+				</Indentation>
+				<Highlighting title="הדגשה">
+					<Item id="6351" name="סמן את כל מופעי האסימון (Smart Highlighting)"/>
+					<Item id="6352" name="אפשר"/>
+					<Item id="6353" name="התאם מילה שלמה בלבד"/>
+					<Item id="6354" name="התאם רישיות"/>
+					<Item id="6356" name="אפשר גם עבור תצוגה אחרת"/>
+					<Item id="6360" name="השתמש רק עבור:"/>
+					<Item id="6361" name="אפשר בחירה מרובה"/>
+					<Item id="6357" name="סגנון 1"/>
+					<Item id="6358" name="סגנון 2"/>
+					<Item id="6359" name="סגנון 3"/>
+					<Item id="6362" name="סגנון 4"/>
+					<Item id="6363" name="סגנון 5"/>
+					<Item id="6333" name="הדגשת תגים"/>
+					<Item id="6328" name="הדגשת תכונות תג"/>
+					<Item id="6339" name="אפשר"/>
+					<Item id="6340" name="הדגש תג פתיחה/סגירה תואם"/>
+					<Item id="6330" name="הדגשת אזור תג"/>
+				</Highlighting>
+
+				<Print title="הדפסה">
+					<Item id="6601" name="הדפס מספרי שורות"/>
+					<Item id="6602" name="סכימת צבעים"/>
+					<Item id="6603" name="WYSIWYG (מה שאתה רואה זה מה שאתה מקבל)"/>
+					<Item id="6604" name="הפוך צבעים"/>
+					<Item id="6605" name="שחור על לבן"/>
+					<Item id="6606" name="ללא צבע רקע"/>
+					<Item id="6607" name="הגדרות שוליים (מילימטר):"/>
+					<Item id="6612" name="שמאל"/>
+					<Item id="6613" name="למעלה"/>
+					<Item id="6614" name="ימין"/>
+					<Item id="6615" name="למטה"/>
+					<Item id="6706" name="מודגש"/>
+					<Item id="6707" name="נטוי"/>
+					<Item id="6708" name="כותרת עליונה"/>
+					<Item id="6709" name="כותרת תחתונה"/>
+					<Item id="6710" name="שמאל"/>
+					<Item id="6711" name="מרכז"/>
+					<Item id="6712" name="ימין"/>
+					<Item id="6713" name="משתנים:"/>
+					<Item id="6714" name="נתיב מלא"/>
+					<Item id="6715" name="שם קובץ"/>
+					<Item id="6716" name="תיקייה"/>
+					<Item id="6717" name="עמוד"/>
+					<Item id="6718" name="תאריך קצר"/>
+					<Item id="6719" name="תאריך ארוך"/>
+					<Item id="6720" name="שעה"/>
+					<Item id="6721" name="שורה/עמוד"/>
+					<Item id="6722" name="כיוון"/>
+					<Item id="6723" name="דיוקן"/>
+					<Item id="6725" name="נוף"/>
+					<Item id="6727" name="הגדרות"/>
+					<Item id="6728" name="כותרות עליונות/תחתונות"/>
+				</Print>
+
+				<Searching title="חיפוש">
+					<Item id="6901" name="אל תמלא את שדה החיפוש ב'חיפוש' בטקסט הנבחר"/>
+					<Item id="6902" name="השתמש בגופן ברוחב קבוע בדיאלוג חיפוש (דורש הפעלה מחדש)"/>
+					<Item id="6903" name="דיאלוג חיפוש נשאר פתוח לאחר חיפוש המוביל לחלון תוצאות"/>
+					<Item id="6904" name="אשר 'החלף הכל' בכל המסמכים הפתוחים"/>
+					<Item id="6905" name="החלפה: אל תעבור למופע הבא"/>
+					<Item id="6906" name="חלון תוצאות חיפוש: הצג רק שורה אחת לכל מופע שנמצא"/>
+					<Item id="6907" name="כאשר דיאלוג חיפוש נפתח"/>
+					<Item id="6908" name="מלא את שדה החיפוש בטקסט הנבחר"/>
+					<Item id="6909" name="מלא את שדה החיפוש במילה נוכחית אם אין בחירה"/>
+					<Item id="6910" name="סף עבור 'בבחירה' (הפעלה אוטומטית):"/>
+				</Searching>
+
+				<RecentFilesHistory title="היסטוריית קבצים אחרונים">
+					<Item id="6120" name="נקה בעת יציאה"/>
+					<Item id="6121" name="פתח את הקובץ הבא בעת סגירה"/>
+					<Item id="6122" name="מספר מופעים מקסימלי:"/>
+					<Item id="6123" name="תצוגה"/>
+					<Item id="6124" name="בתפריט קובץ"/>
+					<Item id="6125" name="בלשונית 'קבצים אחרונים'"/>
+					<Item id="6126" name="הצג נתיב מלא"/>
+					<Item id="6127" name="קצץ אורך שם קובץ"/>
+				</RecentFilesHistory>
+
+				<Backup title="גיבוי">
+					<Item id="6322" name="זכור סשן נוכחי להפעלה הבאה"/>
+					<Item id="6323" name="אפשר צילום מצב (Snapshot) של סשן וגיבוי תקופתי"/>
+					<Item id="6324" name="גבה כל:"/>
+					<Item id="6325" name="שניות"/>
+					<Item id="6326" name="נתיב גיבוי:"/>
+					<Item id="6327" name="[WARNING] פגיעה בפרטיות: גיבוי מסוג זה עלול להכיל מידע רגיש. אל תשתמש בנתיב זה אם אתה מודאג מפרטיות."/>
+					<Item id="6315" name="ללא גיבוי"/>
+					<Item id="6316" name="גיבוי פשוט"/>
+					<Item id="6317" name="גיבוי מורחב"/>
+					<Item id="6318" name="גיבוי בעת שמירה"/>
+					<Item id="6319" name="תיקיית גיבוי"/>
+					<Item id="6320" name="באותה תיקייה של הקובץ"/>
+					<Item id="6321" name="תיקייה מותאמת אישית:"/>
+					<Item id="6331" name="הצג רק שם קובץ בפס הכותרת"/>
+				</Backup>
+
+				<AutoCompletion title="השלמה אוטומטית">
+					<Item id="6115" name="הסטה אוטומטית"/>
+					<Item id="6801" name="אפשר לכל קלט"/>
+					<Item id="6802" name="השלמת פונקציה"/>
+					<Item id="6803" name="השלמת מילה"/>
+					<Item id="6804" name="השלמת פונקציה ומילה"/>
+					<Item id="6805" name="רמז פרמטר פונקציה בעת הקלדה"/>
+					<Item id="6824" name="התעלם ממספרים"/>
+					<Item id="6806" name="מהתו ה-"/>
+					<Item id="6807" name=" "/>
+					<Item id="6808" name="הצג בחירה במופע בודד"/>
+					<Item id="6809" name="סגור אוטומטית"/>
+					<Item id="6810" name="()"/>
+					<Item id="6811" name="[]"/>
+					<Item id="6812" name="{}"/>
+					<Item id="6813" name="&quot;&quot;"/>
+					<Item id="6814" name="''"/>
+					<Item id="6815" name="תגיות HTML/XML"/>
+					<Item id="6851" name="השלמה אוטומטית"/>
+					<Item id="6852" name="סגירה אוטומטית"/>
+				</AutoCompletion>
+
+				<MultiInstance title="מופעים מרובים">
+					<Item id="6151" name="הגדרות"/>
+					<Item id="6152" name="פתח תמיד במופע חדש של Notepad++"/>
+					<Item id="6153" name="פתח תמיד במופע הקיים של Notepad++"/>
+					<Item id="6154" name="ברירת מחדל (מופע יחיד)"/>
+					<Item id="6155" name="[NOTE] שינוי הגדרה זו דורש הפעלה מחדש של Notepad++"/>
+				</MultiInstance>
+
+				<Delimiter title="מפריד">
+					<Item id="6251" name="הגדרות מפריד (Ctrl + לחיצה כפולה)"/>
+					<Item id="6252" name="פתיחה:"/>
+					<Item id="6255" name="סגירה:"/>
+					<Item id="6256" name="אפשר על שורות מרובות"/>
+					<Item id="6161" name="תווים במילה (Characters in world)"/>
+					<Item id="6162" name="השתמש בתווי המילה כפי שהם"/>
+					<Item id="6163" name="הוסף תווים אלו לשורת המילים (אל תשתמש בזה אלא אם כן אתה יודע מה אתה עושה)"/>
+				</Delimiter>
+
+				<Performance title="ביצועים">
+					<Item id="7141" name="השבת תכונות עבור קבצים גדולים"/>
+					<Item id="7143" name="סף עבור קובץ גדול (MB):"/>
+					<Item id="7144" name="אפשר הדגשת צמדי סוגרים"/>
+					<Item id="7146" name="אפשר הדגשת קישורים"/>
+					<Item id="7147" name="אפשר גלישת שורות"/>
+					<Item id="7148" name="אפשר השלמה אוטומטית"/>
+					<Item id="7149" name="אפשר סמלים (Smart Highlighting)"/>
+					<Item id="7150" name="השבת הדגשת תחביר באופן גלובלי"/>
+				</Performance>
+
+				<Cloud title="ענן &amp;&amp; קישור">
+					<Item id="6262" name="הגדרות ענן"/>
+					<Item id="6263" name="ללא ענן"/>
+					<Item id="6267" name="נתיב ענן:"/>
+					<Item id="6335" name="קישורי אינטרנט"/>
+					<Item id="6334" name="אפשר"/>
+					<Item id="6333" name="ללא קו תחתי"/>
+					<Item id="6341" name="דרוש Ctrl + לחיצה"/>
+				</Cloud>
+
+				<SearchEngine title="מנוע חיפוש">
+					<Item id="6271" name="מנוע חיפוש (עבור פקודת 'חפש באינטרנט')"/>
+					<Item id="6272" name="DuckDuckGo"/>
+					<Item id="6273" name="Google"/>
+					<Item id="6274" name="Bing"/>
+					<Item id="6275" name="Yahoo!"/>
+					<Item id="6276" name="הגדר מנוע חיפוש משלך:"/>
+					<Item id="6278" name="דוגמה: https://www.google.com/search?q=$(CURRENT_WORD)"/>
+				</SearchEngine>
+
+				<MISC title="שונות">
+					<ComboBox id="6347" name="אפשר"/>
+					<ComboBox id="6348" name="מושבת"/>
+					<ComboBox id="6349" name="עבור פלטפורמה"/>
+					<Item id="6304" name="היסטוריית קבצים"/>
+					<Item id="6305" name="אל תבדוק בעת הפעלה"/>
+					<Item id="6306" name="מספר קבצים מירבי:"/>
+					<Item id="6307" name="אפשר"/>
+					<Item id="6308" name="מזער למגש המערכת"/>
+					<Item id="6309" name="זכור סשן נוכחי להפעלה הבאה"/>
+					<Item id="6312" name="זיהוי מצב קבצים"/>
+					<Item id="6313" name="עדכן בשקט"/>
+					<Item id="6318" name="הפעל באופן אוטומטי"/>
+					<Item id="6324" name="ריבוי מופעים"/>
+					<Item id="6325" name="גלול לשורה האחרונה לאחר עדכון"/>
+					<Item id="6319" name="תדירות בדיקה"/>
+					<Item id="6320" name="ללא"/>
+					<Item id="6321" name="הצג הודעה"/>
+					<Item id="6322" name="סיומת קובץ סשן (Session):"/>
+					<Item id="6323" name="אפשר עדכון אוטומטי של Notepad++"/>
+					<Item id="6326" name="אפשר (Smart Highlighting)"/>
+					<Item id="6332" name="התאם רישיות"/>
+					<Item id="6333" name="התאם מילה שלמה בלבד"/>
+					<Item id="6338" name="מילוי אוטומטי"/>
+					<Item id="6339" name="השתמש בטקסט הנבחר"/>
+					<Item id="6340" name="השתמש במילה מתחת לסמן"/>
+					<Item id="6337" name="מיקום שדה חיפוש"/>
+					<Item id="6314" name="השתמש בגופן ברוחב קבוע בחלון תוצאות חיפוש"/>
+					<Item id="6330" name="הצג כפתור סגירה בכל לשונית"/>
+					<Item id="6331" name="הצג רק שם קובץ בפס הכותרת"/>
+					<Item id="6334" name="זיהוי אוטומטי של קידוד תווים"/>
+					<Item id="6344" name="מעבר מסמכים (Ctrl+Tab)"/>
+					<Item id="6345" name="אפשר"/>
+					<Item id="6346" name="הצג רשימת מסמכים"/>
+					<Item id="6360" name="השתמש ב-DirectWrite (עלול לשפר רינדור של תווים מיוחדים, דורש הפעלה מחדש)"/>
+					<Item id="6361" name="אפשר (Mute All Sounds)"/>
+					<Item id="6362" name="תפריט (Alt+לחיצה ימנית להוספה/הסרה)"/>
+				</MISC>
+			</Preference>
+			<MultiReplace title="החלפה מרובה">
+				<Item id="1" name="החלף"/>
+				<Item id="2" name="סגור"/>
+				<Item id="20973" name="החלפה מרובה:"/>
+				<Item id="21008" name="מצא:"/>
+				<Item id="21009" name="החלף ב:"/>
+				<Item id="21010" name="החלף הכל"/>
+			</MultiReplace>
+
+			<FolderAsWorkspace title="תיקייה כסביבת עבודה">
+				<Item id="1" name="סייר הקבצים"/>
+				<Item id="2" name="הוסף תיקייה..."/>
+				<Item id="3" name="הסר"/>
+				<Item id="4" name="פתח את כל הקבצים"/>
+				<Item id="5" name="העתק נתיב"/>
+				<Item id="6" name="פתח בשורת הפקודה"/>
+				<Item id="7" name="מצא בתיקיות..."/>
+				<Item id="8" name="סגור הכל"/>
+				<Item id="9" name="פתח תיקייה כסביבת עבודה"/>
+				<Item id="10" name="חדש"/>
+				<Item id="11" name="שנה שם..."/>
+				<Item id="12" name="מיין לפי שם"/>
+			</FolderAsWorkspace>
+
+			<ProjectManager title="פרויקט">
+				<Item id="1" name="פרויקט חדש"/>
+				<Item id="2" name="הוסף פרויקט"/>
+				<Item id="3" name="הוסף קובץ"/>
+				<Item id="4" name="הסר"/>
+				<Item id="5" name="שנה שם..."/>
+				<Item id="6" name="העבר למעלה"/>
+				<Item id="7" name="העבר למטה"/>
+			</ProjectManager>
+
+			<ColumnEditor title="עורך עמודות">
+				<Item id="2023" name="&amp;טקסט להכנסה"/>
+				<Item id="2033" name="&amp;מספר להכנסה"/>
+				<Item id="2030" name="&amp;מספר התחלתי :"/>
+				<Item id="2031" name="&amp;הגדל ב- :"/>
+				<Item id="2035" name="&amp;אפסים מובילים"/>
+				<Item id="2036" name="&amp;חזור על :"/>
+				<Item id="2032" name="פורמט"/>
+				<Item id="2024" name="&amp;עשרוני"/>
+				<Item id="2025" name="&amp;אוקטלי"/>
+				<Item id="2026" name="&amp;הקסדצימלי"/>
+				<Item id="2027" name="&amp;בינארי"/>
+				<Item id="1" name="אישור"/>
+				<Item id="2" name="ביטול"/>
+			</ColumnEditor>
+			<FindInFinder title="מצא בתוצאות חיפוש">
+				<Item id="1" name="מצא הכל"/>
+				<Item id="2" name="סגור"/>
+				<Item id="1711" name="&amp;חפש את:"/>
+				<Item id="1713" name="חפש &amp;רק בשורות שנמצאו"/>
+				<Item id="1714" name="התאם מילה &amp;שלמה בלבד"/>
+				<Item id="1715" name="התאם &amp;רישיות"/>
+				<Item id="1716" name="מצב חיפוש"/>
+				<Item id="1717" name="&amp;רגיל"/>
+				<Item id="1719" name="ביטוי &amp;רגולרי"/>
+				<Item id="1718" name="מור&amp;חב (\n, \r, \t, \0, \x...)"/>
+				<Item id="1720" name="&amp;. מתאים לשורה חדשה"/>
+			</FindInFinder>
+			<DoSaveOrNot title="שמירה">
+				<Item id="1761" name="לשמור את הקובץ &quot;$STR_REPLACE$&quot; ?"/>
+				<Item id="6" name="&amp;כן"/>
+				<Item id="7" name="&amp;לא"/>
+				<Item id="2" name="&amp;ביטול"/>
+				<Item id="4" name="כן ל&amp;הכל"/>
+				<Item id="5" name="ל&amp;א להכל"/>
+			</DoSaveOrNot>
+			<DoSaveAll title="אישור שמירת הכל">
+				<Item id="1766" name="האם אתה בטוח שברצונך לשמור את כל המסמכים ששונו?
+
+בחר &quot;תמיד כן&quot; אם אינך רוצה לראות את הדיאלוג הזה שוב.
+תוכל להפעיל מחדש את הדיאלוג הזה בהעדפות מאוחר יותר."/>
+				<Item id="6" name="&amp;כן"/>
+				<Item id="7" name="&amp;לא"/>
+				<Item id="4" name="&amp;תמיד כן"/>
+			</DoSaveAll>			<!-- איך לשחזר: סמן את תיבת הסימון "אפשר דיאלוג אישור שמירת הכל" בהעדפות->שונות (MISC), כעת לחץ על "שמור הכל" -->
+
+			<DebugInfo title="פרטי ניפוי שגיאות">
+				<Item id="1752" name="&amp;העתק פרטי ניפוי שגיאות ללוח"/>
+				<Item id="1" name="אישור"/>
+			</DebugInfo>
 		</Dialog>
+
+		<MessageBox>
+			<!-- $INT_REPLACE$ ו-$STR_REPLACE$ הם מצייני מקום, אין לתרגם מצייני מקום אלו. -->
+			<Item id="0" name="++Notepad"/>
+			<Item id="1" name="לא ניתן לפתוח את הקובץ &quot;$STR_REPLACE$&quot;."/>
+			<Item id="2" name="הקובץ &quot;$STR_REPLACE$&quot; השתנה מחוץ ל-Notepad++. האם ברצונך לטעון אותו מחדש?"/>
+			<Item id="3" name="הקובץ &quot;$STR_REPLACE$&quot; שונה. האם ברצונך לשמור את השינויים?"/>
+			<Item id="4" name="לא ניתן לשמור את הקובץ &quot;$STR_REPLACE$&quot;."/>
+			<Item id="5" name="הקובץ &quot;$STR_REPLACE$&quot; כבר קיים. האם ברצונך להחליף אותו?"/>
+			<Item id="6" name="הקובץ &quot;$STR_REPLACE$&quot; מוגן לכתיבה. האם ברצונך לפתוח אותו בכל זאת?"/>
+			<Item id="7" name="הקובץ &quot;$STR_REPLACE$&quot; גדול מדי לפתיחה ב-Notepad++."/>
+
+			<ContextMenuXmlEditWarning title="עריכת תפריט הקשר" message="עריכת contextMenu.xml מאפשרת לך לשנות את תפריט ההקשר המוקפץ של Notepad++.
+עליך להפעיל מחדש את Notepad++ כדי שהשינויים ייכנסו לתוקף לאחר שינוי contextMenu.xml."/>
+			<SaveCurrentModifWarning title="שמירת שינויים נוכחיים" message="עליך לשמור את השינוי הנוכחי.
+כל השינויים שנשמרו לא ניתנים לביטול (Undo).
+
+להמשיך?"/>
+			<!-- איך לשחזר: כאשר הקובץ הפתוח שונה אך טרם נשמר, ואתה משנה את קידוד הקובץ. -->
+			<LoseUndoAbilityWarning title="אזהרת אובדן יכולת ביטול פעולה" message="עליך לשמור את השינוי הנוכחי.
+כל השינויים שנשמרו לא ניתנים לביטול (Undo).
+
+להמשיך?"/>
+			<!-- איך לשחזר: כאשר הקובץ הפתוח שונה ונשמר, ואז אתה משנה את קידוד הקובץ. -->
+			<CannotMoveDoc title="העברה למופע חדש של Notepad++" message="המסמך שונה, שמור אותו ונסה שוב."/>
+			<!-- איך לשחזר: מתוך ה-Notepad++ שלך גרור ושחרר קובץ נקי (לא שונה) אל מחוץ ל-Notepad++, מופע אחר של Notepad++ ייווצר. לאחר מכן, מה-Notepad++ הראשון שלך גרור ושחרר קובץ שלא נשמר אל המופע החדש. -->
+			<DocReloadWarning title="טעינה מחדש" message="האם אתה בטוח שברצונך לטעון מחדש את הקובץ הנוכחי ולאבד את השינויים שבוצעו ב-Notepad++?"/>
+			<FileLockedWarning title="השמירה נכשלה" message="אנא בדוק אם הקובץ פתוח בתוכנית אחרת"/>
+			<FileAlreadyOpenedInNpp title="" message="הקובץ כבר פתוח ב-Notepad++."/>
+			<!-- איך לשחזר: פתח מסמך חדש ופתח קובץ "c:/tmp/foo", שמור את המסמך החדש על ידי בחירת "c:/tmp/foo" كקובץ לשמירה, ענה "כן" לשאלת ההחלפה המוקפצת, ואז הודעה זו תופיע. -->
+			<RenameTabTemporaryNameAlreadyInUse title="שינוי השם נכשל" message="השם שצוין כבר נמצא בשימוש בלשונית אחרת."/>
+			<!-- איך לשחזר: שנה שם ללשונית של מסמך ללא שם וספק שם זהה לזה של לשונית קיימת כבר של מסמך ללא שם. -->
+			<RenameTabTemporaryNameIsEmpty title="שינוי השם נכשל" message="השם שצוין לא יכול להיות ריק, או להכיל רק רווחים או טאבים."/>
+			<!-- איך לשחזר: שנה שם ללשונית של מסמך ללא שם וספק מחרוזת ריקה או כמה רווחים או טאבים בלבד. -->
+			<DeleteFileFailed title="מחיקת קובץ" message="מחיקת הקובץ נכשלה"/>
+			<!-- איך לשחזר: הודעה זו מונעת כשל מערכת. קשה לשחזר זאת. -->
+
+			<NbFileToOpenImportantWarning title="כמות קבצים גדולה לפתיחה" message="$INT_REPLACE$ קבצים עומדים להיפתח.
+האם אתה בטוח שברצונך לפתוח אותם?"/>
+			<SettingsOnCloudError title="הגדרות בענן" message="נראה שנתיב ההגדרות בענן מוגדר בכונן לקריאה בלבד,
+או בתיקייה הדורשת הרשאות מנהל לגישת כתיבה.
+ההגדרות בענן יבוטלו. אנא הגדר ערך תקין דרך דיאלוג ההעדפות."/>
+			<FilePathNotFoundWarning title="פתיחת קובץ" message="הקובץ שאתה מנסה לפתוח לא קיים."/>
+			<SessionFileInvalidError title="לא ניתן לטעון סשן" message="קובץ הסשן פגום או לא תקין."/>
+			<DroppingFolderAsProjectModeWarning title="פעולה לא חוקית" message="ניתן לגרור רק קבצים או תיקיות אך לא את שניהם יחד, מכיוון שאתה נמצא במצב 'גרירת תיקייה כפרויקט'.
+עליך להפעיל את 'פתח את כל קבצי התיקייה במקום להפעיל תיקייה כסביבת עבודה בעת גרירת תיקייה' בסעיף 'תיקיית ברירת מחדל' בדיאלוג ההעדפות כדי שהפעולה תעבוד."/>
+			<SortingError title="שגיאת מיון" message="לא ניתן לבצע מיון מספרי עקב שורה $INT_REPLACE$."/>
+			<SortLocaleMultiple title="המיון לא בוצע" message="מיון בחירות מרובות אינו נתמך."/>
+			<SortLocaleUnknown title="המיון נכשל" message="לא ניתן לקבוע את הסיבה לכך שהמיון נכשל."/>
+			<SortLocaleExcept title="המיון נכשל" message="$STR_REPLACE$"/>
+			<ColumnModeTip title="טיפ למצב עמודה" message="
+ישנן 3 דרכים לעבור למצב בחירת-עמודה:
+
+1. (מקלדת ועכבר) החזק Alt בזמן גרירת הלחצן השמאלי
+
+2. (מקלדת בלבד) החזק Alt+Shift בזמן שימוש במקשי החיצים
+
+3. (מקלדת או עכבר)
+   מקם את הסמן במיקום התחלת בלוק העמודה הרצוי, ואז
+   בצע פקודת 'התחלה/סיום בחירה במצב עמודה';
+   הזז את הסמן למיקום סיום בלוק העמודה הרצוי, ואז
+   בצע שוב פקודת 'התחלה/סיום בחירה במצב עמודה'"/>
+			<BufferInvalidWarning title="השמירה נכשלה" message="לא ניתן לשמור: הבאפר (Buffer) לא תקין."/>
+			<DoCloseOrNot title="שמור קובץ שאינו קיים" message="הקובץ &quot;$STR_REPLACE$&quot; אינו קיים יותר.
+לשמור מסמך זה בעורך?"/>
+			<DoDeleteOrNot title="מחיקת קובץ" message="הקובץ &quot;$STR_REPLACE$&quot;
+יועבר לסל המיחזור ומסמך זה ייסגר.
+להמשיך?"/>
+			<NoBackupDoSaveFile title="שמירה" message="קובץ הגיבוי שלך לא נמצא (נמחק מבחוץ).
+שמור אותו אחרת המידע שלך יאבד.
+האם ברצונך לשמור את הקובץ &quot;$STR_REPLACE$&quot;?"/>
+			<DoReloadOrNot title="טעינה מחדש" message="&quot;$STR_REPLACE$&quot;
+
+קובץ זה שונה על ידי תוכנית אחרת.
+האם ברצונך לטעון אותו מחדש?"/>
+			<DoReloadOrNotAndLooseChange title="טעינה מחדש" message="&quot;$STR_REPLACE$&quot;
+
+קובץ זה שונה על ידי תוכנית אחרת.
+האם ברצונך לטעון אותו מחדש ולאבד את השינויים שבוצעו ב-Notepad++?"/>
+			<PrehistoricSystemDetected title="זוהתה מערכת פרה-היסטורית" message="נראה שאתה עדיין משתמש במערכת פרה-היסטורית. תכונה זו עובדת רק במערכת מודרנית, מצטערים."/>
+			<XpUpdaterProblem title="עדכון Notepad++" message="מעדכן Notepad++ אינו תואם ל-XP עקב שכבת אבטחה מיושנת ב-XP.
+האם ברצונך לעבור לדף הבית של Notepad++ כדי להוריד את הגרסה האחרונה?"/>
+			<GUpProxyConfNeedAdminMode title="הגדרות פרוקסי" message="אנא הפעל מחדש את Notepad++ במצב מנהל כדי להגדיר פרוקסי."/>
+			<DocTooDirtyToMonitor title="בעיית ניטור" message="המסמך שונה (Dirty). אנא שמור את השינויים לפני התחלת הניטור."/>
+			<DocNoExistToMonitor title="בעיית ניטור" message="הקובץ חייב להיות קיים כדי שניתן יהיה לנטר אותו."/>
+			<FileTooBigToOpen title="בעיית גודל קובץ" message="הקובץ גדול מדי לפתיחה ב-Notepad++"/>
+			<FileLoadingException title="קוד חריגה: $STR_REPLACE$" message="אירעה שגיאה בעת טעינת הקובץ!"/>
+			<WantToOpenHugeFile title="אזהרת פתיחת קובץ ענק" message="פתיחת קובץ ענק של 2GB+ עלולה לקחת מספר דקות.
+האם ברצונך לפתוח אותו?"/>
+			<CreateNewFileOrNot title="יצירת קובץ חדש" message="&quot;$STR_REPLACE$&quot; לא קיים. ליצור אותו?"/>
+			<CreateNewFileError title="יצירת קובץ חדש" message="לא ניתן ליצור את הקובץ &quot;$STR_REPLACE$&quot;."/>
+			<OpenFileError title="שגיאה" message="לא ניתן לפתוח את הקובץ &quot;$STR_REPLACE$&quot;."/>
+			<OpenFileNoFolderError title="לא ניתן לפתוח קובץ" message="לא ניתן לפתוח את &quot;$STR_REPLACE1$&quot;:
+התיקייה &quot;$STR_REPLACE2$&quot; לא קיימת."/>
+			<FileBackupFailed title="גיבוי קובץ נכשל" message="לא ניתן היה לשמור את הגרסה הקודמת של הקובץ בתיקיית הגיבוי ב-&quot;$STR_REPLACE$&quot;.
+
+האם ברצונך לשמור את הקובץ הנוכחי בכל זאת?"/>
+			<LoadStylersFailed title="טעינת stylers.xml נכשלה" message="הטעינה של &quot;$STR_REPLACE$&quot; נכשלה!"/>
+			<LoadLangsFailed title="מגדיר (Configurator)" message="טעינת langs.xml נכשלה!
+האם ברצונך לשחזר את langs.xml?"/>
+			<LoadLangsFailedFinal title="מגדיר (Configurator)" message="טעינת langs.xml נכשלה!"/>
+			<FolderAsWorspaceSubfolderExists title="בעיה בהוספת תיקייה לסביבת עבודה" message="קיימת תת-תיקייה של התיקייה שברצונך להוסיף.
+אנא הסר את השורש שלה מהפאנל לפני שתוסיף את התיקייה &quot;$STR_REPLACE$&quot;."/>
+
+			<ProjectPanelChanged title="$STR_REPLACE$" message="סביבת העבודה (Workspace) שונתה. האם ברצונך לשמור אותה?"/>
+			<ProjectPanelSaveError title="$STR_REPLACE$" message="אירעה שגיאה בעת כתיבת קובץ סביבת העבודה שלך.
+סביבת העבודה שלך לא נשמרה."/>
+			<ProjectPanelOpenDoSaveDirtyWsOrNot title="פתיחת סביבת עבודה" message="סביבת העבודה הנוכחית שונתה. האם ברצונך לשמור את הפרויקט הנוכחי?"/>
+			<ProjectPanelNewDoSaveDirtyWsOrNot title="סביבת עבודה חדשה" message="סביבת העבודה הנוכחית שונתה. האם ברצונך לשמור את הפרויקט הנוכחי?"/>
+			<ProjectPanelOpenFailed title="פתיחת סביבת עבודה" message="לא ניתן היה לפתוח את סביבת העבודה.
+נראה שהקובץ לפתיחה אינו קובץ פרויקט תקין."/>
+			<ProjectPanelRemoveFolderFromProject title="הסרת תיקייה מהפרויקט" message="כל תת-הפריטים יוסרו.
+האם אתה בטוח שברצונך להסיר תיקייה זו מהפרויקט?"/>
+			<ProjectPanelRemoveFileFromProject title="הסרת קובץ מהפרויקט" message="האם אתה בטוח שברצונך להסיר קובץ זה מהפרויקט?"/>
+			<ProjectPanelReloadError title="טעינה מחדש של סביבת עבודה" message="לא ניתן למצוא את הקובץ לטעינה מחדש."/>
+			<ProjectPanelReloadDirty title="טעינה מחדש של סביבת עבודה" message="סביבת העבודה הנוכחית שונתה. טעינה מחדש תבטל את כל השינויים.
+האם ברצונך להמשיך?"/>
+			<UDLNewNameError title="שגיאת UDL" message="שם זה נמצא בשימוש על ידי שפה אחרת,
+אנא בחר שם אחר."/>
+			<UDLRemoveCurrentLang title="הסר את השפה הנוכחית" message="האם אתה בטוח?"/>
+			<UDL_importSuccessful title="שפה מוגדרת משתמש" message="הייבוא הצליח."/>
+			<UDL_importFails title="שפה מוגדרת משתמש" message="הייבוא נכשל."/>
+			<UDL_saveBeforeImport title="שפה מוגדרת משתמש" message="לפני הייצוא, שמור את הגדרת השפה שלך על ידי לחיצה על כפתור &quot;שמור בשם...&quot;."/>
+			<UDL_exportSuccessful title="שפה מוגדרת משתמש" message="הייצוא הצליח."/>
+			<UDL_exportFails title="שפה מוגדרת משתמש" message="הייצוא נכשל."/>
+			<SCMapperDoDeleteOrNot title="האם אתה בטוח?" message="האם אתה בטוח שברצונך למחוק קיצור דרך זה?"/>
+			<FindCharRangeValueError title="בעיה בערך הטווח" message="עליך להקליד ערך בין 0 ל-255."/>
+			<OpenInAdminMode title="השמירה נכשלה" message="לא ניתן לשמור את הקובץ וייתכן שהוא מוגן.
+האם ברצונך להפעיל את Notepad++ במצב מנהל (Administrator)?"/>
+			<OpenInAdminModeWithoutCloseCurrent title="השמירה נכשלה" message="לא ניתן לשמור את הקובץ וייתכן שהוא מוגן.
+האם ברצונך להפעיל את Notepad++ במצב מנהל (Administrator)?"/>
+			<OpenInAdminModeFailed title="פתיחה במצב מנהל נכשלה" message="לא ניתן היה לפתוח את Notepad++ במצב מנהל."/>
+			<ViewInBrowser title="הצג קובץ נוכחי בדפדפן" message="האפליקציה לא נמצאה במערכת שלך."/>
+			<ExitToUpdatePlugins title="Notepad++ עומד להיסגר" message="אם תלחץ כן, תצא מ-Notepad++ כדי להמשיך בפעולות.
+Notepad++ יופעל מחדש לאחר סיום כל הפעולות.
+להמשיך?"/>
+			<NeedToRestartToLoadPlugins title="יש להפעיל מחדש את Notepad++" message="עליך להפעיל מחדש את Notepad++ כדי לטעון את התוספים שהתקנת."/>
+			<ChangeHistoryEnabledWarning title="יש להפעיל מחדש את Notepad++" message="עליך להפעיל מחדש את Notepad++ כדי לאפשר היסטוריית שינויים."/>
+			<WindowsSessionExit title="Notepad++ - יציאה מסשן Windows" message="סשן Windows עומד להסתיים אך יש לך מידע שלא נשמר. האם ברצונך לצאת מ-Notepad++ כעת?"/>
+			<LanguageMenuCompactWarning title="תפריט שפה דחוס" message="אפשרות זו תשתנה בהפעלה הבאה."/>
+			<SwitchUnsavedThemeWarning title="$STR_REPLACE$" message="שינויים שלא נשמרו עומדים להתבטל!
+האם ברצונך לשמור את השינויים לפני החלפת ערכת נושא?"/>
+			<MacroAndRunCmdlWarning title="תאימות פקודות מאקרו והפעלה" message="פקודות המאקרו וההפעלה שלך שנשמרו ב-Notepad++ v.8.5.2 (או ישן יותר) עשויות לא להיות תואמות לגרסה הנוכחית של Notepad++.
+אנא בדוק את הפקודות הללו ובמידת הצורך ערוך אותן מחדש.
+
+לחלופין, תוכל לחזור לגרסת Notepad++ v8.5.2 ולשחזר את הנתונים הקודמים שלך.
+Notepad++ יגבה את &quot;shortcuts.xml&quot; הישן שלך וישמור אותו כ-&quot;shortcuts.xml.v8.5.2.backup&quot;.
+על ידי שינוי השם &quot;shortcuts.xml.v8.5.2.backup&quot; -> &quot;shortcuts.xml&quot;, הפקודות שלך אמורות להשתחזר ולעבוד כראוי."/>
+			<FullReadOnlySavingForbidden title="השמירה נכשלה" message="לא ניתן לשמור קובץ.
+מצב איסור שמירה בקריאה-בלבד ב-Notepad++ מנע את שמירת הקובץ."/>
+			<NotEnoughRoom4Saving title="השמירה נכשלה" message="נכשל בשימור הקובץ.
+נראה שאין מספיק מקום בדיסק כדי לשמור את הקובץ. הקובץ שלך לא נשמר."/>
+			<FileInaccessibleUserSession title="קובץ לא נגיש" message="חלק מהקבצים מהסשן ששמרת ידנית &quot;$STR_REPLACE$&quot; אינם נגישים. ניתן לפתוח אותם כמסמכים ריקים ולקריאה בלבד כמיקומי עזר (Placeholders).
+
+האם תרצה ליצור מיקומי עזר אלו?
+
+הערה: אם תבחר שלא ליצור את מיקומי העזר או תסגור אותם מאוחר יותר, הסשן ששמרת ידנית לא ישתנה בעת היציאה."/>
+			<FileInaccessibleDefaultSessionXml title="קובץ לא נגיש" message="חלק מהקבצים מהסשן הקודם שלך אינם נגישים. ניתן לפתוח אותם כמסמכים ריקים ולקריאה בלבד כמיקומי עזר (Placeholders).
+
+האם תרצה ליצור מיקומי עזר אלו?
+
+הערה: אם תבחר שלא ליצור את מיקומי העזר או תסגור אותם מאוחר יותר, הסשן שלך ישתנה בעת היציאה! אנו ממליצים לך לגבות את &quot;session.xml&quot; כעת."/>
+			<RTLvsDirectWrite title="לא ניתן להפעיל RTL" message="מצב RTL אינו תואם למצב DirectWrite. אנא השבת את מצב DirectWrite בסעיף שונות (MISC) בדיאלוג ההעדפות, והפעל מחדש את Notepad++."/>
+			<FileMemoryAllocationFailed title="חריגה: הקצאת זיכרון לקובץ נכשלה" message="כנראה שאין מספיק זיכרון חופשי רציף עבור הקובץ הנטען על ידי Notepad++."/>
+			<FindRegexBackwardDisabled title="חיפוש רגולרי לאחור מושבת" message="כברירת מחדל, חיפוש ביטויים רגולריים לאחור מושבת עקב תוצאות בלתי צפויות אפשריות. כדי לבצע חיפוש לאחור, פתח את דיאלוג החיפוש ובחר במצב חיפוש רגיל או מורחב במקום ביטוי רגולרי.
+לחץ על כפתור אישור כדי לפתוח את דיאלוג החיפוש או להתמקד בו.
+
+אם אתה זקוק לתכונת החיפוש הרגולרי לאחור, עיין במדריך למשתמש להוראות הפעלה."/>
+			<PrintError title="0" message="לא ניתן להתחיל מסמך להדפסה."/>
+			<FindAutoChangeOfInSelectionWarning title="אזהרת חיפוש" message="מצב תיבת הסימון &quot;בבחירה&quot; שונה אוטומטית.
+אנא אמת את תנאי החיפוש לפני ביצוע הפעולה."/>
+			<Need2Restart2ShowMenuShortcuts title="יש להפעיל מחדש את Notepad++" message="יש להפעיל מחדש את Notepad++ כדי להציג את קיצורי התפריט הימני."/>
+			<NoAdminRight2ChangeReadOnlyFileAttribute title="שינוי מאפיין קריאה-בלבד נכשל" message="אנא הפעל את Notepad++ כמנהל כדי לשנות את מאפייני הקובץ."/>
+		</MessageBox>
+
+		<ClipboardHistory>
+			<PanelTitle name="היסטוריית לוח"/>
+		</ClipboardHistory>
+		<DocList>
+			<PanelTitle name="רשימת מסמכים"/>
+			<ColumnName name="שם"/>
+			<ColumnExt name="סיומת"/>
+			<ColumnPath name="נתיב"/>
+			<ListGroups name="קבץ לפי תצוגה"/>
+		</DocList>
+		<WindowsDlg>
+			<ColumnName name="שם"/>
+			<ColumnPath name="נתיב"/>
+			<ColumnType name="סוג"/>
+			<ColumnSize name="גודל"/>
+			<ColumnDateTime name="זמן שינוי"/>
+			<NbDocsTotal name="סה&quot;כ מסמכים:"/>
+			<MenuCopyName name="העתק שמות"/>
+			<MenuCopyPath name="העתק נתיבי שמות"/>
+		</WindowsDlg>
+		<AsciiInsertion>
+			<PanelTitle name="פאנל הכנסת קודי ASCII"/>
+			<ColumnVal name="ערך"/>
+			<ColumnHex name="Hex"/>
+			<ColumnChar name="תו"/>
+			<ColumnHtmlName name="שם HTML"/>
+			<ColumnHtmlNumber name="HTML עשרוני"/>
+			<ColumnHtmlHexNb name="HTML הקסדצימלי"/>
+		</AsciiInsertion>
+		<DocumentMap>
+			<PanelTitle name="מפת מסמך"/>
+		</DocumentMap>
+		<FunctionList>
+			<PanelTitle name="רשימת פונקציות"/>
+			<SortTip name="מיון"/>
+			<ReloadTip name="טעינה מחדש"/>
+			<PreferencesTip name="העדפות"/>
+			<PreferencesInitialSort name="מיין פונקציות (A-Z) כברירת מחדל"/>
+		</FunctionList>
+		<FolderAsWorkspace>
+			<PanelTitle name="תיקייה כסביבת עבודה"/>
+			<SelectFolderFromBrowserString name="בחר תיקייה להוספה לפאנל תיקייה כסביבת עבודה"/>
+			<ExpandAllFoldersTip name="פרוס הכל"/>
+			<CollapseAllFoldersTip name="קפל הכל"/>
+			<LocateCurrentFileTip name="אתר קובץ נוכחי"/>
+			<Menu>
+				<Item id="3511" name="הסר"/>
+				<Item id="3512" name="הסר הכל"/>
+				<Item id="3513" name="הוסף"/>
+				<Item id="3514" name="הפעל על ידי המערכת"/>
+				<Item id="3515" name="פתח"/>
+				<Item id="3516" name="העתק נתיב"/>
+				<Item id="3517" name="מצא בקבצים..."/>
+				<Item id="3518" name="סייר כאן"/>
+				<Item id="3519" name="שורת פקודה כאן"/>
+				<Item id="3520" name="העתק שם קובץ"/>
+			</Menu>
+		</FolderAsWorkspace>
+		<ProjectManager>
+			<PanelTitle name="פרויקט"/>
+			<WorkspaceRootName name="סביבת עבודה (Workspace)"/>
+			<NewProjectName name="שם פרויקט"/>
+			<NewFolderName name="שם תיקייה"/>
+			<Menus>
+				<Entries>
+					<Item id="0" name="סביבת עבודה"/>
+					<Item id="1" name="עריכה"/>
+				</Entries>
+				<WorkspaceMenu>
+					<Item id="3122" name="סביבת עבודה חדשה"/>
+					<Item id="3123" name="פתח סביבת עבודה"/>
+					<Item id="3124" name="טען מחדש סביבת עבודה"/>
+					<Item id="3125" name="שמור"/>
+					<Item id="3126" name="שמור בשם..."/>
+					<Item id="3127" name="שמור עותק בשם..."/>
+					<Item id="3121" name="הוסף פרויקט חדש"/>
+					<Item id="3128" name="מצא בפרויקטים..."/>
+				</WorkspaceMenu>
+				<ProjectMenu>
+					<Item id="3111" name="שנה שם"/>
+					<Item id="3112" name="הוסף תיקייה"/>
+					<Item id="3113" name="הוסף קבצים..."/>
+					<Item id="3117" name="הוסף קבצים מתיקייה..."/>
+					<Item id="3114" name="הסר"/>
+					<Item id="3118" name="העבר למעלה"/>
+					<Item id="3119" name="העבר למטה"/>
+				</ProjectMenu>
+				<FolderMenu>
+					<Item id="3111" name="שנה שם"/>
+					<Item id="3112" name="הוסף תיקייה"/>
+					<Item id="3113" name="הוסף קבצים..."/>
+					<Item id="3117" name="הוסף קבצים מתיקייה..."/>
+					<Item id="3114" name="הסר"/>
+					<Item id="3118" name="העבר למעלה"/>
+					<Item id="3119" name="העבר למטה"/>
+				</FolderMenu>
+				<FileMenu>
+					<Item id="3111" name="שנה שם"/>
+					<Item id="3115" name="הסר"/>
+					<Item id="3116" name="שנה נתיב קובץ"/>
+					<Item id="3118" name="העבר למעלה"/>
+					<Item id="3119" name="העבר למטה"/>
+				</FileMenu>
+			</Menus>
+		</ProjectManager>
+		<MiscStrings>
+			<!-- $INT_REPLACE$ ו-$STR_REPLACE$ הם מצייני מקום, אין לתרגם מצייני מקום אלו. -->
+			<Item id="0" name="אין תוצאות נמצאו."/>
+			<Item id="1" name="נמצא מופע אחד."/>
+			<Item id="2" name="נמצאו $STR_REPLACE$ מופעים."/>
+			<Item id="3" name="הקצה $STR_REPLACE$ בתים."/>
+			<Item id="4" name="שורה: $STR_REPLACE$ עמודה: $STR_REPLACE$"/>
+			<Item id="5" name="אורך: $STR_REPLACE$ שורות: $STR_REPLACE$"/>
+			<Item id="6" name="מוכן"/>
+			<Item id="7" name="מעבד..."/>
+			<Item id="8" name="הקלטת מאקרו..."/>
+			<Item id="9" name="נמרץ"/>
+			<Item id="10" name="לא נמרץ"/>
+
+			<word-chars-list-tip value="זה מאפשר לך לכלול תווים נוספים ברשימת תווי המילה בעת לחיצה כפולה לבחירה או בעת חיפוש עם האפשרות 'התאם מילה שלמה בלבד' מסומנת."/>
+			<eol-custom-color-tip value="עבור אל 'מגדיר סגנונות' (Style Configurator) כדי לשנות את צבע ברירת המחדל של סוף שורה (EOL)."/>
+			<word-chars-list-warning-begin value="שים לב: "/>
+			<word-chars-list-space-warning value="$INT_REPLACE$ רווח(ים)"/>
+			<word-chars-list-tab-warning value="$INT_REPLACE$ טאב(ים)"/>
+			<word-chars-list-warning-end value=" ברשימת התווים שלך."/>
+			<!-- איך לשחזר: בסעיף "מפריד" (Delimiter) בדיאלוג ההעדפות, סמן את "הוסף את התו שלך כחלק ממילה\r(אל תבחר בזה אלא אם אתה יודע מה אתה עושה)", ואז הקלד רווח בשדה הטקסט. -->
+			<backup-select-folder value="בחר תיקייה כתיקיית גיבוי"/>
+			<!-- איך לשחזר: הגדרות > העדפות > גיבוי > [...] -->
+			<cloud-invalid-warning value="נתיב לא חוקי."/>
+			<cloud-restart-warning value="אנא הפעל מחדש את Notepad++ כדי שהשינויים ייכנסו לתוקף."/>
+			<cloud-select-folder value="בחר תיקייה ממנה/אליה Notepad++ יקרא/יכתוב את הגדרותיו"/>
+			<!-- איך לשחזר: בסעיף "ענן" (Cloud) בדיאלוג ההעדפות, סמן את "הגדר את נתיב מיקום הענן שלך כאן: ", ואז לחץ על הכפתור "...". הודעה זו מוצגת בדיאלוג "עיון בתיקייה". -->
+			<default-open-save-select-folder value="בחר תיקייה כתיקיית ברירת מחדל"/>
+			<!-- איך לשחזר: הגדרות > העדפות > תיקיית ברירת מחדל > [...] -->
+			<shift-change-direction-tip value="השתמש ב-Shift+Enter כדי לחפש בכיוון ההפוך"/>
+			<two-find-buttons-tip value="מצב 2 כפתורי חיפוש"/>
+			<find-in-files-filter-tip value="חפש ב-cpp, cxx, h, hxx &amp;&amp; hpp:
+*.cpp *.cxx *.h *.hxx *.hpp
+
+חפש בכל הקבצים מלבד exe, obj &amp;&amp; log:
+*.* !*.exe !*.obj !*.log
+
+חפש בכל הקבצים אך בטל תיקיות tests, bin &amp;&amp; bin64:
+*.* !\tests !\bin*
+
+חפש בכל הקבצים אך בטל את כל תיקיות log או logs באופן רקורסיבי:
+*.* !+\log*"/>
+			<!-- איך לשחזר: טיפ המופיע כאשר העכבר מרחף מעל התווית "מסננים" בסעיף "מצא בקבצים" בדיאלוג החיפוש. -->
+			<find-in-files-select-folder value="בחר תיקייה לחיפוש ממנה"/>
+			<!-- איך לשחזר: חיפוש > מצא בקבצים > [...] -->
+			<find-in-files-dir-from-active-doc-tip value="מלא שדה תיקייה על סמך המסמך הפעיל"/>
+			<!-- איך לשחזר: חיפוש > מצא בקבצים > [<<] -->
+			<find-status-top-reached value="חיפוש: הגעתי לתחילת המסמך, נמצא המופע הראשון מלמטה."/>
+			<find-status-end-reached value="חיפוש: הגעתי לסוף המסמך, נמצא המופע הראשון מלמעלה."/>
+			<find-status-replaceinfiles-1-replaced value="החלפה בקבצים: מופע אחד הוחלף"/>
+			<find-status-replaceinfiles-nb-replaced value="החלפה בקבצים: $INT_REPLACE$ מופעים הוחלפו"/>
+			<find-status-replaceinopenedfiles-1-replaced value="החלפה בקבצים פתוחים: מופע אחד הוחלף"/>
+			<find-status-replaceinopenedfiles-nb-replaced value="החלפה בקבצים פתוחים: $INT_REPLACE$ מופעים הוחלפו"/>
+			<find-status-invalid-re value="חיפוש: ביטוי רגולרי לא תקין"/>
+			<find-status-search-failed value="חיפוש: החיפוש נכשל"/>
+			<find-status-mark-1-match value="סימון: התאמה אחת"/>
+			<find-status-mark-nb-matches value="סימון: $INT_REPLACE$ התאמות"/>
+			<find-status-count-1-match value="ספירה: התאמה אחת"/>
+			<find-status-count-nb-matches value="ספירה: $INT_REPLACE$ התאמות"/>
+			<find-status-replaceall-1-replaced value="החלף הכל: מופע אחד הוחלף"/>
+			<find-status-replaceall-nb-replaced value="החלף הכל: $INT_REPLACE$ מופעים הוחלפו"/>
+			<find-status-replaceall-readonly value="החלף הכל: לא ניתן להחליף טקסט. המסמך הנוכחי הוא לקריאה בלבד"/>
+			<find-status-replace-end-reached value="החלפה: הגעתי לסוף המסמך, התחלתי מלמעלה."/>
+			<find-status-replace-top-reached value="החלפה: הגעתי לתחילת המסמך, התחלתי מלמטה."/>
+			<find-status-replaced-next-found value="החלפה: מופע אחד הוחלף. המופע הבא נמצא."/>
+			<find-status-replaced-without-continuing value="החלפה: מופע אחד הוחלף."/>
+			<find-status-replaced-next-not-found value="החלפה: מופע אחד הוחלף. לא נמצאו מופעים נוספים."/>
+			<find-status-replace-not-found value="החלפה: לא נמצאו מופעים"/>
+			<find-status-replace-readonly value="החלפה: לא ניתן להחליף טקסט. המסמך הנוכחי הוא לקריאה בלבד"/>
+			<find-status-cannot-find value="חיפוש: לא ניתן למצוא את הטקסט &quot;$STR_REPLACE$&quot;"/>
+			<find-status-cannot-find-pebkac-maybe value="המופע המבוקש לא נמצא. ייתכן ששכחת לסמן 'מסביב' (עבור ל-ON), 'התאם רישיות' (עבור ל-OFF), או 'התאם מילה שלמה בלבד' (עבור ל-OFF)."/>
+			<find-status-scope-selection value="בטקסט הנבחר"/>
+			<find-status-scope-all value="בכל הקובץ"/>
+			<find-status-scope-backward value="מתחילת הקובץ ועד הסמן"/>
+			<find-status-scope-forward value="מהסמן ועד סוף הקובץ"/>
+			<find-status-invisible-chars-findWhat value="תווים בלתי נראים בתוכן 'חפש את' או 'החלף ב' שהודבק"/>
+			<find-status-invisible-chars-findWhat-tip value="אזהרה: תווים בלתי נראים בשדה החיפוש (או ההחלפה).
+הטקסט שהודבק לשדה זה כולל תווים בלתי נראים (אולי סופי-שורה). אם תמשיך מבלי למחוק אותם, הם ייכללו בטקסט החיפוש (או ההחלפה)."/>
+			<finder-find-in-finder value="חפש בתוצאות חיפוש אלו..."/>
+			<finder-close-this value="סגור תוצאות חיפוש אלו"/>
+			<finder-collapse-all value="קפל הכל"/>
+			<finder-uncollapse-all value="פרוס הכל"/>
+			<finder-copy value="העתק שורות נבחרות"/>
+			<finder-copy-selected-paths value="העתק נתיבי שמות נבחרים"/>
+			<finder-clear-all value="נקה הכל"/>
+			<finder-open-selected-paths value="פתח נתיבי שמות נבחרים"/>
+			<finder-purge-for-every-search value="נקה בכל חיפוש"/>
+			<finder-wrap-long-lines value="גלישת שורות ארוכות"/>
+			<common-ok value="אישור"/>
+			<common-cancel value="ביטול"/>
+			<common-name value="שם"/>
+			<tabrename-title value="שנה שם ללשונית נוכחית"/>
+			<tabrename-newname value="שם חדש"/>
+			<splitter-rotate-left value="סובב שמאלה"/>
+			<splitter-rotate-right value="סובב ימינה"/>
+			<userdefined-title-new value="צור שפה חדשה..."/>
+			<userdefined-title-save value="שמור שם שפה נוכחית בשם..."/>
+			<userdefined-title-rename value="שנה שם לשפה הנוכחית"/>
+			<summary value="סיכום"/>
+			<summary-filepath value="נתיב קובץ מלא: "/>
+			<summary-filecreatetime value="נוצר: "/>
+			<summary-filemodifytime value="שונה: "/>
+			<summary-nbchar value="תווים (ללא סופי שורה): "/>
+			<summary-nbword value="מילים: "/>
+			<summary-nbline value="שורות: "/>
+			<summary-nbbyte value="אורך מסמך: "/>
+			<summary-nbsel1 value=" תווים נבחרים ("/>
+			<summary-nbsel2 value=" בתים) ב- "/>
+			<summary-nbrange value=" טווחים"/>
+			<progress-hits-title value="תוצאות:"/>
+			<progress-cancel-info value="מבטל פעולה, אנא המתן..."/>
+			<find-in-files-progress-title value="התקדמות חיפוש בקבצים..."/>
+			<replace-in-files-confirm-title value="האם אתה בטוח?"/>
+			<replace-in-files-confirm-directory value="האם אתה בטוח שברצונך להחליף את כל המופעים ב:"/>
+			<replace-in-files-confirm-filetype value="עבור סוג קובץ:"/>
+			<replace-in-files-progress-title value="התקדמות החלפה בקבצים..."/>
+			<replace-in-projects-confirm-title value="האם אתה בטוח?"/>
+			<replace-in-projects-confirm-message value="האם ברצונך להחליף את כל המופעים בכל המסמכים בפאנל(י) הפרויקט הנבחרים?"/>
+			<replace-in-open-docs-confirm-title value="האם אתה בטוח?"/>
+			<replace-in-open-docs-confirm-message value="האם אתה בטוח שברצונך להחליף את כל המופעים בכל המסמכים הפתוחים?"/>
+			<find-result-caption value="תוצאות חיפוש"/>
+			<find-result-title value="חיפוש"/>
+			<!-- אסור שיתחיל ברווח או בתו טאב -->
+			<find-result-title-info value="($INT_REPLACE1$ תוצאות ב-$INT_REPLACE2$ קבצים מתוך $INT_REPLACE3$ שנסרקו)"/>
+			<find-result-title-info-selections value="($INT_REPLACE1$ תוצאות ב-$INT_REPLACE2$ בחירות מתוך $INT_REPLACE3$ שנסרקו)"/>
+			<find-result-title-info-options-searchmode-normal value="רגיל"/>
+			<find-result-title-info-options-searchmode-extended value="מורחב"/>
+			<find-result-title-info-options-searchmode-regexp value="ביטוי רגולרי"/>
+			<find-result-title-info-options-case value="רישיות"/>
+			<find-result-title-info-options-word value="מילה"/>
+			<find-result-title-info-extra value=" - מצב סינון שורות: הצג רק את התוצאות המסוננות"/>
+			<find-result-hits value="($INT_REPLACE$ תוצאות)"/>
+			<find-result-line-prefix value="שורה"/>
+			<!-- אסור שיתחיל ברווח או בתו טאב -->
+			<find-regex-zero-length-match value="התאמה באורך אפס"/>
+			<session-save-folder-as-workspace value="שמור תיקייה כסביבת עבודה"/>
+			<tab-untitled-string value="חדש "/>
+			<file-save-assign-type value="צרף סיומת &amp;Extension"/>
+			<close-panel-tip value="סגור"/>
+			<IncrementalFind-FSFound value="$INT_REPLACE$ התאמות"/>
+			<IncrementalFind-FSNotFound value="הביטוי לא נמצא"/>
+			<IncrementalFind-FSTopReached value="הגעתי לראש הדף, ממשיך למטה"/>
+			<IncrementalFind-FSEndReached value="הגעתי לסוף הדף, ממשיך למעלה"/>
+			<contextMenu-styleAlloccurrencesOfToken value="סגנן את כל מופעי האסימון"/>
+			<contextMenu-styleOneToken value="סגנן אסימון אחד"/>
+			<contextMenu-clearStyle value="נקה סגנון"/>
+			<contextMenu-PluginCommands value="פקודות תוספים"/>
+			<largeFileRestriction-tip value="חלק מהתכונות עלולות להאט את הביצועים בקבצים גדולים. תכונות אלו יכולות להתבטל אוטומטית בעת פתיחת קובץ גדול. ניתן להתאים אותן כאן.
+
+הערה:
+1. שינוי אפשרויות כאן דורש פתיחה מחדש של הקבצים הגדולים הפתוחים כרגע לקבלת התנהגות תקינה.
+
+2. אם 'בטל גלישת שורות גלובלית' מסומן ואתה פותח קובץ גדול, 'גלישת שורות' תושבת עבור כל הקבצים. ניתן להפעיל אותה מחדש דרך תפריט 'תצוגה -> גלישת שורות'."/>
+			<npcNote-tip value="ייצוג של רווחים נבחרים שאינם ASCII ותווים שאינם מדפיסים (בקרה).
+
+הערה:
+שימוש בייצוג יבטל אפקטים של תווים על הטקסט.
+
+לרשימה המלאה של רווחים ותווים שאינם מדפיסים, עיין במדריך למשתמש.
+
+לחץ על כפתור זה כדי לפתוח את האתר עם המדריך למשתמש."/>
+			<npcAbbreviation-tip value="קיצור : שם
+NBSP : רווח לא שביר
+ZWSP : רווח ברוחב אפס
+ZWNBSP : רווח לא שביר ברוחב אפס
+
+לרשימה המלאה עיין במדריך למשתמש.
+לחץ על כפתור &quot;?&quot; מימין כדי לפתוח את האתר עם המדריך למשתמש."/>
+			<npcCodepoint-tip value="Codepoint : שם
+U+00A0 : רווח לא שביר
+U+200B : רווח ברוחב אפס
+U+FEFF : רווח לא שביר ברוחב אפס
+
+לרשימה המלאה עיין במדריך למשתמש.
+לחץ על כפתור &quot;?&quot; מימין כדי לפתוח את האתר עם המדריך למשתמש."/>
+
+			<!-- אין לתרגם את "(&quot;Non-printing characters custom color&quot;)" -->
+			<npcCustomColor-tip value="עבור למגדיר הסגנונות כדי לשנות את צבע ברירת המחדל המותאם אישית עבור רווחים ותווים שאינם מדפיסים (&quot;Non-printing characters custom color&quot;)."/>
+			<npcIncludeCcUniEol-tip value="החל את הגדרות המראה של תווים שאינם מדפיסים על תווי בקרה C0, C1 ו-Unicode EOL (שורה הבאה, מפריד שורות ומפריד פסקאות)."/>
+			<searchingInSelThresh-tip value="מספר מינימלי של תווים נבחרים באזור העריכה כדי לסמן אוטומטית את תיבת הסימון 'בבחירה' כאשר דיאלוג החיפוש מופעל. הערך המקסימלי הוא $INT_REPLACE$. הגדר את הערך ל-0 כדי להשבית סימון אוטומטי."/>
+			<searchingFillFindWhat-tip value="מספר מקסימלי של תווים נבחרים באזור העריכה למילוי אוטומטי של שדה 'חפש את' כאשר Ctrl-F מופעל. הערך המקסימלי הוא $INT_REPLACE$, שהוא הגודל המקסימלי של שדה 'חפש את', המוגבל על ידי המערכת."/>
+			<verticalEdge-tip value="הוסף את סמן העמודה שלך על ידי ציון מיקומו במספר עשרוני. ניתן להגדיר מספר סמני עמודות על ידי שימוש ברווח כדי להפריד בין המספרים השונים."/>
+			<fileSaveAsCopySaveButton-tip value="החזק Shift בזמן לחיצה על שמור כדי לפתוח את העותק לאחר השמירה."/>
+			<autoIndentBasic-tip value="וודא שההזחה של השורה הנוכחית (כלומר השורה החדשה שנוצרת על ידי לחיצה על מקש ENTER) מתאימה להזחה של השורה הקודמת."/>
+			<autoIndentAdvanced-tip value="אפשר הזחה חכמה לשפות דמויות C ו-Python. השפות דמויות C כוללות:
+C, C++, Java, C#, Objective-C, PHP, JavaScript, JSP, CSS, Perl, Rust, PowerShell ו-JSON.
+
+אם תבחר במצב מתקדם אך לא תערוך קבצים בשפות שהוזכרו לעיל, ההזחה תישאר במצב בסיסי."/>
+
+			<!-- אין לתרגם את "Global override" ו-"Default Style" -->
+			<global-override-tip value="הפעלת &quot;Global override&quot; כאן תעקוף פרמטר זה בכל סגנונות השפות. מה שאתה כנראה באמת רוצה זה להשתמש בהגדרות &quot;Default Style&quot; במקום זאת"/>
+			<scintillaRenderingTechnology-tip value="עשוי לשפר רינדור של תתוים מיוחדים או לפתור בעיות גרפיות מסוימות, הפעל מחדש את Notepad++ כדי להחיל את השינויים."/>
+
+			<!-- בשל השטח המוגבל בשורת המצב, אם התרגומים עבור 'length' ו-'lines' ארוכים משמעותית מהמילים באנגלית, אנא השאר אותם באנגלית במקום לתרגם אותם. -->
+			<statusbar-length-lines value="אורך: $STR_REPLACE1$    שורות: $STR_REPLACE2$"/>
+
+			<!-- בשל השטח המוגבל בשורת המצב, אם התרגומים עבור 'Ln' ו-'Col' ארוכים מהמילים באנגלית, אנא השאר אותם באנגלית במקום לתרגם אותם. -->
+			<statusbar-Ln-Col value="שורה: $STR_REPLACE1$    עמ': $STR_REPLACE2$"/>
+
+			<!-- בשל השטח המוגבל בשורת המצב, אם התרגומים עבור 'Pos' ו-'Sel' ארוכים מהמילים באנגלית, אנא השאר אותם באנגלית במקום לתרגם אותם. -->
+			<statusbar-Pos value="מיקום: "/>
+			<statusbar-Sel value="בחירה: "/>
+			<statusbar-Sel-number value="בחירה"/>
+			<toolbar-accent-tip value="אפשרות זו גורמת לאייקוני סרגל הכלים לעקוב אחר צבע ההדגשה של מערכת Windows. צבע ההדגשה הוא הצבע המשמש בכפתורים, מסגרות ותפריט התחלה ב-Windows. כדי לשנות אותו, עבור אל הגדרות > התאמה אישית > צבעים, ובחר צבע הדגשה מועדף."/>
+			<len-limit-exceeded-tip value="חריגה מגבול האורך: הקלט שלך עשוי לחרוג מהמגבלה המותרת וייתכן שקוצץ, והוא לא יישמר לסשן הבא."/>
+			<max-len-on-search-tip value="הקלט שלך עשוי לחרוג מהמגבלה המותרת וייתכן שקוצץ, והוא לא יישמר לסשן הבא."/>
+			<max-len-on-save-tip value="אורך הקלט שלך ארוך מאוד וייתכן שלא יישמר לסשן הבא."/>
+			<goto-setting-tip value="מצא את ההגדרה שלך כאן"/>
+			<tabbar-tabcompactlabellen-tip value="מגביל את אורך הנראה של שמות לשוניות ארוכים. הקש Enter כדי להחיל את הערך. טווח ערכים: 1-257 תווים (0 מבטל את הקיצוץ)."/>
+		</MiscStrings>
 	</Native-Langue>
 </NotepadPlus>
 
